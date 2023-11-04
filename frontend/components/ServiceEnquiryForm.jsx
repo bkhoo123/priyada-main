@@ -72,12 +72,12 @@ const CreateServiceEnquiry = () => {
 
       console.log("THIS IS RESPONSE", response)
       if (response) {
-        alert("Services Appointment Created Successfully");
+        alert("Thank you. Your request has been sent.");
         router.push("/");
       }
     } catch (error) {
       console.error(error);
-      alert("FAIL TO SUBMIT FORM");
+      alert("Sorry, There was an error. Failed to submit form.");
     }
   };
 
@@ -141,12 +141,12 @@ const CreateServiceEnquiry = () => {
           </label>
           <div className="py-6 flex gap-4 justify-center m-15">
             <button
-              className="bg-teal-700 font-semibold hover:bg-stone-500 text-white rounded-sm p-2 transition duration-700"
+              className="bg-teal-700 font-semibold hover:bg-teal-900 text-white rounded-md p-2 transition duration-700"
               type="submit"
             >
               Submit
             </button>
-            <button className="bg-teal-700 font-semibold text-white rounded-sm p-2 hover:bg-stone-500 transition duration-700">
+            <button className="bg-teal-700 font-semibold hover:bg-teal-900 text-white rounded-md p-2 transition duration-700">
               <Link href="/">Return to Home Page</Link>
             </button>
           </div>
