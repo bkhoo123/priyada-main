@@ -1,0 +1,43 @@
+{
+  "About_the_Artist": {
+    "Name": "Priyanka Raghuraman",
+    "Profile": {
+      "Description": "A passionate and talented multidisciplinary artist exploring new creative territories, founder and artistic director of Priyada Arts, and known for original works merging contemporary themes with traditional art forms.",
+      "Roles": ["Performer", "Choreographer", "Teacher"],
+      "Skills": ["Nirtta (pure dance movements)", "Abhinaya (facial expressions used in storytelling)"],
+      "Other_Titles": ["Senior Performer", "Faculty Member"],
+      "Current_Study": "Pursuing Kuchipudi under the tutelage of Sr. Kasi Aysola",
+      "Collaborations": ["Nava Dance Theatre", "Navatman", "Abhinaya Dance Company", "Prakriti Dance", "Bharata Dance Company"],
+      "Early_Training": {
+        "Age": 4,
+        "Guidance": ["Smt. Kamala Raghuraman", "Guru Kalaimamani Smt. Anitha Guha"]
+      },
+      "Professional_Soloist": true,
+      "Graded_Artist_With_Doordarshan": true,
+      "TV_Host": "Hosted over 100 television shows on national television",
+      "Theater_Actor": true,
+      "Awards": [
+        {"Award_Name": "The Meritorious Performer Award", "Year": 2020, "Organizer": "Sri Parthasarathy Swami Sabha"},
+        {"Award_Name": "Yuva Kala Kovida", "Year": 2019, "Organizer": "Kala Sangha, USA"},
+        {"Award_Name": "Periya Sharadha Endowment", "Year": 2016, "Organizer": "Sri Krishna Gana Sabha"}
+      ],
+      "Digital_Performances": true,
+      "Podcast_Feature": "Featured in a podcast on Spotify for 'The Hindu Business Line, Stage Business'",
+      "Quora_Tamil_VIP_Questionnaire": true,
+      "Noteworthy_Projects": [
+        {"Project_Name": "Mahabharata", "Year": 2021, "Description": "Award-winning dance film by Navatman"},
+        {"Project_Name": "Life of Pi", "Description": "Bharatanatyam adaptation by Sri. Ganesh Vasudeva, praised by Ms. Marina Harss of the New Yorker"}
+      ],
+      "Other_Interests": "Working as a professional makeup artist"
+    }
+  },
+  "About_Priyada_Arts": {
+    "Description": "A welcoming and inclusive community for learning and exploring Bharatanatyam, founded by Priyanka Raghuraman. Offers in-person and online classes to learners of all ages and backgrounds, covering practical dance lessons, theory, dance fitness, costuming, makeup, and stagecraft.",
+    "Name_Origin": {
+      "Priyada": "Derived from Sanskrit, meaning 'with love' (Priya=Love Da=with)"
+    },
+    "Founder_Wish": "Seamlessly braid the rigorous and wholesome training imbibed by her teachers with thoughtful creativity and empathy she has come to practice as a multidisciplinary performing artist.",
+    "Community_Type": "Safe and inspiring space where artists can come together to create and grow",
+    "Testimonials": "Received numerous testimonials praising exceptional skills, passion, and dedication"
+  }
+}
