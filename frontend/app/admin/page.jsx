@@ -20,63 +20,69 @@ const AdminDashboard = () => {
   const [classRegistrations, setClassRegistrations] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
   const [students, setStudents] = useState([])
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
 
   // *************************************************************************************
 
+// TESTIMONIALS AND INQUIRIES SHOW UP IN STATE BUT CAN'T RENDER!!!?!? *************
 
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const inquiriesResponse = await axios.get('http://127.0.0.1:5000/api/serviceappointments/');
-  //       setInquiries(inquiriesResponse.data.service_appointments);
-
-  //       const registrationsResponse = await axios.get('http://127.0.0:5000/api/danceclassregistrations/');
-  //       setClassRegistrations(registrationsResponse.data.dance_class_resigrations);
-
-  //       const testimonialsResponse = await axios.get('http://127.0.0.1:5000/api/testimonials/');
-  //       setTestimonials(testimonialsResponse.data.testimonials);
-
-
-  //       const studentsResponse = await axios.get('http://127.0.0.1:5000/api/users/');
-  //       setStudents(studentsResponse.data.users);
-
-
-  //       setIsLoading(false);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchTestimonials = async () => {
       try {
-        const inquiriesResponse = await axios.get('http://127.0.0.1:5000/api/serviceappointments/');
-        setInquiries(inquiriesResponse.data.service_appointments);
-  
-        const registrationsResponse = await axios.get('http://127.0.0.1:5000/api/danceclassregistrations/');
-        setClassRegistrations(registrationsResponse.data.dance_class_resigrations);
-  
-        const testimonialsResponse = await axios.get('http://127.0.0.1:5000/api/testimonials/');
-        setTestimonials(testimonialsResponse.data.testimonials);
-  
-        const studentsResponse = await axios.get('http://127.0.0.1:5000/api/users/');
-        setStudents(studentsResponse.data.users);
-  
-        setIsLoading(false);
+        const response = await axios.get('http://127.0.0.1:5000/api/testimonials/');
+        const fetchedTestimonies = response.data.testimonials;
+        console.log("FETCHED TESTIMONIES", fetchedTestimonies)
+        setTestimonials(fetchedTestimonies);
+        console.log("THIS IS FETCHED TESTIMONIES", testimonials)
+
+
       } catch (error) {
-        console.error('Error fetching data:', error);
+        setError(error);
       }
     };
-  
-    fetchData();
-  }, []);
+
+  const fetchInquiries = async () => {
+    try {
+      const inquiriesResponse = await axios.get('http://127.0.0.1:5000/api/serviceappointments/');
+      setInquiries(inquiriesResponse.data.service_appointments);
+    } catch (error) {
+      console.error('Error fetching inquiries:', error);
+    }
+  };
+
+  const fetchRegistrations = async () => {
+    try {
+      const registrationsResponse = await axios.get('http://127.0.0.1:5000/api/danceclassregistrations/');
+      setClassRegistrations(registrationsResponse.data.dance_class_registrations);
+    } catch (error) {
+      console.error('Error fetching registrations:', error);
+    }
+  };
 
 
+
+  const fetchStudents = async () => {
+    try {
+      const studentsResponse = await axios.get('http://127.0.0.1:5000/api/users/');
+      setStudents(studentsResponse.data.users);
+      console.log("THIS IS STUDENTS IN USEEFFECT", students);
+    } catch (error) {
+      console.error('Error fetching students:', error);
+    }
+  };
+
+  fetchInquiries();
+  fetchRegistrations();
+  fetchTestimonials();
+  fetchStudents();
+}, []);
+
+
+  console.log("THIS IS STUDENTS OUTSIDE OF USEFFECt", students)
+ console.log("THIS IS testimonies OUTSIDE OF USEFFECt", testimonials)
+  console.log("THIS IS class reg OUTSIDE OF USEFFECt", classRegistrations)
+   console.log("THIS IS inquiries OUTSIDE OF USEFFECt", inquiries)
 
   // *************************************************************************************
 
@@ -95,9 +101,7 @@ const AdminDashboard = () => {
   
     return (
       <div className="h-full flex items-center justify-center text-black">
-        {isLoading ? (
-          <div className="text-xl">Loading...</div>
-        ) : (
+
           <div className="grid grid-cols-2 gap-4">
 
 
@@ -112,7 +116,8 @@ const AdminDashboard = () => {
                       <div className="font-bold">Inquiry From: {pendingInquiry?.user?.first_name} {pendingInquiry?.user?.last_name}</div>
                       <div>Type: {pendingInquiry?.service_id === 1 ? "Makeup" : pendingInquiry?.service_id === 2 ? "Emcee" : "Nattuvangam"}</div>
                       <div>Message: {pendingInquiry?.notes}</div>
-                      <div>Requested Date: {pendingInquiry?.date}</div>
+                      <div>Requested Date: {pendingInquiry?.date.toLocaleString()}</div>
+
                       <div>Requested Location: {pendingInquiry?.location}</div>
                       <div>Contact Email: {pendingInquiry?.user?.email}</div>
                       <div>Contact Phone Number: {pendingInquiry?.user?.phone_number}</div>
@@ -136,7 +141,7 @@ const AdminDashboard = () => {
                       <div className="font-bold">Inquiry From: {approvedInquiry?.user?.first_name} {approvedInquiry?.user?.last_name}</div>
                       <div>Type: {approvedInquiry?.service_id === 1 ? "Makeup" : approvedInquiry?.service_id === 2 ? "Emcee" : "Nattuvangam"}</div>
                       <div>Message: {approvedInquiry.notes}</div>
-                      <div>Requested Date: {approvedInquiry?.date}</div>
+                      <div>Requested Date: {approvedInquiry?.date.toLocaleString()}</div>
                       <div>Requested Location: {approvedInquiry?.location}</div>
                       <div>Contact Email: {approvedInquiry?.user?.email}</div>
                       <div>Contact Phone Number: {approvedInquiry?.user?.phone_number}</div>
@@ -148,7 +153,7 @@ const AdminDashboard = () => {
                 )) : <div>No Inquiries At This Time</div>}
             </div>
           </div>
-        )}
+
       </div>
     );
   };
@@ -160,9 +165,7 @@ const AdminDashboard = () => {
   const renderClassRegistrationsTab = () => {
     return (
       <div className="h-full flex items-center justify-center">
-        {isLoading ? (
-          <div className="text-xl">Loading...</div>
-        ) : (
+
           <div className="grid grid-cols-2 gap-4">
 
             {/* Display Pending Dance Class Registrations */}
@@ -211,7 +214,7 @@ const AdminDashboard = () => {
                 )) : <div>No Class Registrations At This Time</div>}
             </div>
           </div>
-        )}
+
       </div>
     );
   };
@@ -222,21 +225,21 @@ const AdminDashboard = () => {
 
 
   const renderTestimonialsTab = () => {
+
     return (
+
       <div className="h-full  flex items-center justify-center">
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : (
+
           <div className="grid grid-cols-2 gap-4">
 
 
             {/* Display Pending Testimonials */}
             <div>
-              <div className="text-2xl font-bold mb-4">Pending Testimonials</div>
-              {testimonials?.length > 0 ? testimonials
-                .filter(testimonial => !testimonial?.is_approved)
+              <div className="text-2xl text-black font-bold mb-1">Pending Testimonials</div>
+              {testimonials.length > 0 ? testimonials
+                .filter(testimonial => !testimonial.isApproved)
                 .map((pendingTestimonial, index) => (
-                  <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
+                  <div key={index} className="rounded-lg shadow-md p-1 mb-1 bg-stone-100">
                     <p className="text-black mb-2 font-semibold">Name: {pendingTestimonial?.first_name} {pendingTestimonial?.last_name}</p>
                     <p className="text-black mb-2 font-semibold">Role: {pendingTestimonial?.role}</p>
                     <p className="text-black font-semibold">Content: {pendingTestimonial?.content}</p>
@@ -250,11 +253,11 @@ const AdminDashboard = () => {
 
             {/* Display Approved Testimonials */}
             <div>
-              <div className="text-2xl font-bold mb-4">Approved Testimonials</div>
+              <div className="text-2xl font-bold mb-1">Approved Testimonials</div>
               {testimonials.length > 0 ? testimonials
-                .filter(testimonial => testimonial.is_approved)
+                .filter(testimonial => testimonial.isApproved)
                 .map((approvedTestimonial, index) => (
-                  <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
+                  <div key={index} className="rounded-lg shadow-md p-1 mb-1 bg-stone-100">
                     <p className="text-black mb-2 font-semibold">Name: {approvedTestimonial.first_name} {approvedTestimonial.last_name}</p>
                     <p className="text-black mb-2 font-semibold">Role: {approvedTestimonial.role}</p>
                     <p className="text-black font-semibold">Content: {approvedTestimonial.content}</p>
@@ -265,7 +268,7 @@ const AdminDashboard = () => {
                 )) : (<div>No Approved Testimonials</div>)}
             </div>
           </div>
-        )}
+
       </div>
     );
   };
@@ -275,24 +278,26 @@ const AdminDashboard = () => {
 
   const renderStudentsTab = () => {
     return (
-      <></>
-      // <div className="h-full  flex items-center justify-center">
-      //   {/* ADD CONTENT FOR STUDENTS */}
-      //   {users?.length > 0 ? users
-      //     .map((user, index) => (
-      //       <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
-      //         <p className="text-black mb-2 font-semibold">Name: {user?.first_name} {user?.last_name}</p>
-      //         <p className="text-black font-semibold">Level: {user?.level}</p>
-      //         <p className="text-black mb-2 font-semibold">Authorization: {user?.authorization}</p>
-      //         <p className="text-black font-semibold">Phone Number: {user?.phone_number}</p>
-      //         <p className="text-black font-semibold">Email: {user?.email}</p>
-      //         <p className="text-black font-semibold">Address: {user?.address}</p>
-      //         {/* INSERT form to change a students level and/or authorization */}
 
-      //       </div>
-      //     )) : <div>No Users At This Time</div>}
+      <div className="h-full  flex items-center justify-center">
+        {/* ADD CONTENT FOR STUDENTS */}
+        {students?.length > 0 ? students
+          .map((user, index) => (
+            <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
+              <p className="text-black mb-2 font-semibold">Name: {user?.first_name} {user?.last_name}</p>
+              <p className="text-black font-semibold">Level: {user?.level}</p>
+              <p className="text-black mb-2 font-semibold">Authorization: {user?.authorization}</p>
+              <p className="text-black font-semibold">Phone Number: {user?.phone_number}</p>
+              <p className="text-black font-semibold">Email: {user?.email}</p>
+              <p className="text-black font-semibold">Address: {user?.address}</p>
 
-      // </div>
+
+              {/* INSERT our form to change a students level and/or authorization */}
+
+            </div>
+          )) : <div>No Students At This Time</div>}
+
+      </div>
     );
   };
 
@@ -300,7 +305,7 @@ const AdminDashboard = () => {
 
 
 
-console.log("TESTIMONIALS", testimonials)
+console.log("TESTIMONIALS IN ADMIN PORTAL", testimonials)
 console.log("service inquries", inquiries)
 console.log("class registrations",classRegistrations)
   // *************************************************************************************
