@@ -1,4 +1,5 @@
 /* faq.css */
+
 .faq-page {
     background-color: black;
     display: flex;
@@ -31,12 +32,12 @@
     margin-bottom: 20px;
     color: white;
     text-align: center;
-    font-family: didactGothic;
+    font-family:didactGothic
 }
 
 .faq-page-text {
     font-size: 20px;
-    font-family: didactGothic;
+    font-family:'didactGothic'
 }
 
 /* Style the FAQ questions (odd numbered paragraphs) */

@@ -56,7 +56,7 @@ export default function Home() {
 
 
   return (
-    <main className="bg-black flex w-full h-full relative min-h-screen flex-col justify-between">
+    <main className="bg-black  flex w-full h-full relative min-h-screen flex-col justify-between">
       <NavBar />
 
       <SplashPagePicture />

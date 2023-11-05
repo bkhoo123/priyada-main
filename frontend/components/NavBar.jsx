@@ -40,7 +40,7 @@ const NavBar = () => {
         <div className="flex items-center mr-2">
           <Image className=" rounded-lg" src={Logo} alt="Priyada Arts Logo" width={50} height={50} />
         </div>
-        <div className="text-3xl"><Link href="/">Priyada Arts</Link></div>
+        <div className="text-3xl font-bold"><Link href="/">Priyada Arts</Link></div>
       </div>
 
       {/* NavLinks */}
