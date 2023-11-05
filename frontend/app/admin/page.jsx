@@ -22,6 +22,7 @@ const AdminDashboard = () => {
   const [students, setStudents] = useState([])
   const [isLoading, setIsLoading] = useState(false);
 
+
   // *************************************************************************************
 
 
@@ -102,8 +103,8 @@ const AdminDashboard = () => {
 
             {/* Display Pending Inquiries */}
             <div>
-              <h2 className="text-2xl font-bold mb-4">Pending Inquiries</h2>
-              {inquiries.length > 0 ? inquiries
+              <div className="text-2xl font-bold mb-4">Pending Inquiries</div>
+              {inquiries?.length > 0 ? inquiries
                 .filter(inquiry => !inquiry?.is_approved)
                 .map((pendingInquiry, index) => (
                   <div key={index} className="text-black bg-stone-50 rounded-lg shadow p-4 mb-4">
@@ -121,14 +122,14 @@ const AdminDashboard = () => {
                       <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleRemoveInquiry(pendingInquiry)}>Remove</button>
                     </div>
                   </div>
-                )) : <h2>No Pending Inquiries</h2>}
+                )) : <div>No Pending Inquiries</div>}
             </div>
 
             {/* Display Approved Inquiries */}
             <div>
-              <h2 className="text-2xl font-bold mb-4">Approved Inquiries</h2>
-              {inquiries.length > 0 ? inquiries
-                .filter(inquiry => inquiry.is_approved)
+              <div className="text-2xl font-bold mb-4">Approved Inquiries</div>
+              {inquiries?.length > 0 ? inquiries
+                .filter(inquiry => inquiry?.is_approved)
                 .map((approvedInquiry, index) => (
                   <div key={index} className="text-black bg-stone-50 rounded-lg shadow p-4 mb-4">
                     <div className="grid gap-1">
@@ -144,7 +145,7 @@ const AdminDashboard = () => {
                       <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleRemoveInquiry(pendingInquiry)}>Remove</button>
                     </div>
                   </div>
-                )) : <h2>No Inquiries At This Time</h2>}
+                )) : <div>No Inquiries At This Time</div>}
             </div>
           </div>
         )}
@@ -166,7 +167,7 @@ const AdminDashboard = () => {
 
             {/* Display Pending Dance Class Registrations */}
             <div>
-              <h2 className="text-2xl font-bold mb-4">Pending Registrations</h2>
+              <div className="text-2xl font-bold mb-4">Pending Registrations</div>
               {classRegistrations?.length > 0 ? classRegistrations
                 .filter(registration => !registration?.is_approved)
                 .map((pendingRegistration, index) => (
@@ -184,12 +185,12 @@ const AdminDashboard = () => {
                     <button className="bg-green-500 text-white px-3 py-1 rounded-full" onClick={() => handleApproveRegistration(pendingRegistration)}>Approve</button>
                     <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleRejectRegistration(pendingRegistration)}>Reject</button>
                   </div>
-                )) : <h2>No Pending Class Registrations</h2>}
+                )) : <div>No Pending Class Registrations</div>}
             </div>
 
             {/* Display Approved Dance Class Registrations */}
             <div>
-              <h2 className="text-2xl text-black font-bold mb-4">Approved Registrations</h2>
+              <div className="text-2xl text-black font-bold mb-4">Approved Registrations</div>
               {classRegistrations?.length > 0 ? classRegistrations
                 .filter(registration => registration?.is_approved)
                 .map((approvedRegistration, index) => (
@@ -207,7 +208,7 @@ const AdminDashboard = () => {
                     <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleDeleteRegistration(approvedRegistration)}>Delete</button>
 
                   </div>
-                )) : <h2>No Class Registrations At This Time</h2>}
+                )) : <div>No Class Registrations At This Time</div>}
             </div>
           </div>
         )}
@@ -231,7 +232,7 @@ const AdminDashboard = () => {
 
             {/* Display Pending Testimonials */}
             <div>
-              <h2 className="text-2xl font-bold mb-4">Pending Testimonials</h2>
+              <div className="text-2xl font-bold mb-4">Pending Testimonials</div>
               {testimonials?.length > 0 ? testimonials
                 .filter(testimonial => !testimonial?.is_approved)
                 .map((pendingTestimonial, index) => (
@@ -244,12 +245,12 @@ const AdminDashboard = () => {
 
 
                   </div>
-                )) : <h2>No Pending Testimonials</h2>}
+                )) : (<div>No Pending Testimonials</div>)}
             </div>
 
             {/* Display Approved Testimonials */}
             <div>
-              <h2 className="text-2xl font-bold mb-4">Approved Testimonials</h2>
+              <div className="text-2xl font-bold mb-4">Approved Testimonials</div>
               {testimonials.length > 0 ? testimonials
                 .filter(testimonial => testimonial.is_approved)
                 .map((approvedTestimonial, index) => (
@@ -261,7 +262,7 @@ const AdminDashboard = () => {
                     {/* INSERT DELETE A TESTIMONIAL BUTTON HERE */}
 
                   </div>
-                )) : <h2>No Approved Testimonials</h2>}
+                )) : (<div>No Approved Testimonials</div>)}
             </div>
           </div>
         )}
@@ -272,33 +273,36 @@ const AdminDashboard = () => {
 
   // *************************************************************************************
 
-  // const renderStudentsTab = () => {
-  //   return (
-  //     <div className="h-full  flex items-center justify-center">
-  //       {/* ADD CONTENT FOR STUDENTS */}
-  //       {users?.length > 0 ? users
-  //         .map((user, index) => (
-  //           <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
-  //             <p className="text-black mb-2 font-semibold">Name: {user?.first_name} {user?.last_name}</p>
-  //             <p className="text-black font-semibold">Level: {user?.level}</p>
-  //             <p className="text-black mb-2 font-semibold">Authorization: {user?.authorization}</p>
-  //             <p className="text-black font-semibold">Phone Number: {user?.phone_number}</p>
-  //             <p className="text-black font-semibold">Email: {user?.email}</p>
-  //             <p className="text-black font-semibold">Address: {user?.address}</p>
-  //             {/* INSERT form to change a students level and/or authorization */}
+  const renderStudentsTab = () => {
+    return (
+      <></>
+      // <div className="h-full  flex items-center justify-center">
+      //   {/* ADD CONTENT FOR STUDENTS */}
+      //   {users?.length > 0 ? users
+      //     .map((user, index) => (
+      //       <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
+      //         <p className="text-black mb-2 font-semibold">Name: {user?.first_name} {user?.last_name}</p>
+      //         <p className="text-black font-semibold">Level: {user?.level}</p>
+      //         <p className="text-black mb-2 font-semibold">Authorization: {user?.authorization}</p>
+      //         <p className="text-black font-semibold">Phone Number: {user?.phone_number}</p>
+      //         <p className="text-black font-semibold">Email: {user?.email}</p>
+      //         <p className="text-black font-semibold">Address: {user?.address}</p>
+      //         {/* INSERT form to change a students level and/or authorization */}
 
-  //           </div>
-  //         )) : <h2>No Users At This Time</h2>}
+      //       </div>
+      //     )) : <div>No Users At This Time</div>}
 
-  //     </div>
-  //   );
-  // };
-
-
-
+      // </div>
+    );
+  };
 
 
 
+
+
+console.log("TESTIMONIALS", testimonials)
+console.log("service inquries", inquiries)
+console.log("class registrations",classRegistrations)
   // *************************************************************************************
 
 
@@ -333,8 +337,10 @@ const AdminDashboard = () => {
             {renderTestimonialsTab()}
           </TabPanel>
 
+
+          {/* STUDENTS TAB */}
           <TabPanel className="h-full flex items-center justify-center">
-            {/* {renderStudentsTab()} */}
+            {renderStudentsTab()}
           </TabPanel>
 
         </Tabs>
