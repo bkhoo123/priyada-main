@@ -234,27 +234,27 @@ const AdminDashboard = () => {
 
   // *************************************************************************************
 
-  const renderStudentsTab = () => {
-    return (
-      <div className="h-full  flex items-center justify-center">
-        {/* ADD CONTENT FOR STUDENTS */}
-        {users?.length > 0 ? users
-          .map((user, index) => (
-            <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
-              <p className="text-black mb-2 font-semibold">Name: {user?.first_name} {user?.last_name}</p>
-              <p className="text-black font-semibold">Level: {user?.level}</p>
-              <p className="text-black mb-2 font-semibold">Authorization: {user?.authorization}</p>
-              <p className="text-black font-semibold">Phone Number: {user?.phone_number}</p>
-              <p className="text-black font-semibold">Email: {user?.email}</p>
-              <p className="text-black font-semibold">Address: {user?.address}</p>
-              {/* INSERT form to change a students level and/or authorization */}
+  // const renderStudentsTab = () => {
+  //   return (
+  //     <div className="h-full  flex items-center justify-center">
+  //       {/* ADD CONTENT FOR STUDENTS */}
+  //       {users?.length > 0 ? users
+  //         .map((user, index) => (
+  //           <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
+  //             <p className="text-black mb-2 font-semibold">Name: {user?.first_name} {user?.last_name}</p>
+  //             <p className="text-black font-semibold">Level: {user?.level}</p>
+  //             <p className="text-black mb-2 font-semibold">Authorization: {user?.authorization}</p>
+  //             <p className="text-black font-semibold">Phone Number: {user?.phone_number}</p>
+  //             <p className="text-black font-semibold">Email: {user?.email}</p>
+  //             <p className="text-black font-semibold">Address: {user?.address}</p>
+  //             {/* INSERT form to change a students level and/or authorization */}
 
-            </div>
-          )) : <h2>No Users At This Time</h2>}
+  //           </div>
+  //         )) : <h2>No Users At This Time</h2>}
 
-      </div>
-    );
-  };
+  //     </div>
+  //   );
+  // };
 
 
 
