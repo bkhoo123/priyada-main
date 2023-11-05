@@ -81,7 +81,8 @@ const AdminDashboard = () => {
                       <div className="font-bold">Inquiry From: {pendingInquiry?.user?.first_name} {pendingInquiry?.user?.last_name}</div>
                       <div>Type: {pendingInquiry?.service_id === 1 ? "Makeup" : pendingInquiry?.service_id === 2 ? "Emcee" : "Nattuvangam"}</div>
                       <div>Message: {pendingInquiry?.notes}</div>
-                      <div>Requested Date: {pendingInquiry?.date}</div>
+                      <div>Requested Date: {pendingInquiry?.date.toLocaleString()}</div>
+
                       <div>Requested Location: {pendingInquiry?.location}</div>
                       <div>Contact Email: {pendingInquiry?.user?.email}</div>
                       <div>Contact Phone Number: {pendingInquiry?.user?.phone_number}</div>
@@ -103,7 +104,7 @@ const AdminDashboard = () => {
                       <div className="font-bold">Inquiry From: {approvedInquiry?.user?.first_name} {approvedInquiry?.user?.last_name}</div>
                       <div>Type: {approvedInquiry?.service_id === 1 ? "Makeup" : approvedInquiry?.service_id === 2 ? "Emcee" : "Nattuvangam"}</div>
                       <div>Message: {approvedInquiry.notes}</div>
-                      <div>Requested Date: {approvedInquiry?.date}</div>
+                      <div>Requested Date: {approvedInquiry?.date.toLocaleString()}</div>
                       <div>Requested Location: {approvedInquiry?.location}</div>
                       <div>Contact Email: {approvedInquiry?.user?.email}</div>
                       <div>Contact Phone Number: {approvedInquiry?.user?.phone_number}</div>
