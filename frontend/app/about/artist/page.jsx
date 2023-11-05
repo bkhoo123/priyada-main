@@ -41,7 +41,7 @@ const AboutTheArtist = () => {
         <div className="bg-black text-cream min-h-screen">
             <NavBar />
             <div className="p-8">
-                <div className="text-center text-cream text-2xl font-bold mb-15 gap-20">
+                <div className="text-center text-cream text-3xl font-bold mb-15 gap-20">
                     About the Artist
                 </div>
                 {CarouselHashMap.map((item, index) => (
@@ -60,8 +60,8 @@ const AboutTheArtist = () => {
                             />
                         </div>
                         <div className="w-full md:w-1/2 p-4">
-                            <div className="text-lg leading-7 bg-black bg-opacity-70 rounded-lg p-6">
-                                <p className="text-cream text-left text-lg gap-20">{item.content}</p>
+                            <div className="text-xl leading-7 bg-black bg-opacity-70 rounded-lg p-6">
+                                <p className="text-cream text-left text-xl gap-20">{item.content}</p>
                             </div>
                         </div>
                     </div>
