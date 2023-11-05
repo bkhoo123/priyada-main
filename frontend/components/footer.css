@@ -1,9 +1,8 @@
-/* footer.css */
 
 #footer {
   background-color: black;
-  /* opacity: 50%; */
-  color: ivory;
+
+  color: cream;
   height:60px;
   width: 100%;
   display: flex;
