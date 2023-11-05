@@ -5,10 +5,65 @@ import Footer from '@/components/Footer';
 import ChatBot from '@/components/ChatBot';
 import DanceRegistrationButton from '@/components/DanceRegistrationButton';
 import Background from "./ClassesBackground.jpg"
+import DanceClassCard from '@/components/DanceClassCard';
 
 const Classes = () => {
     const [selectedClass, setSelectedClass] = useState('');
     const [appointmentDate, setAppointmentDate] = useState('');
+
+     const danceLevels = {
+    "Beginner": {
+      "id": 1,
+      "class_one": "Monday at 5:00 pm",
+      "class_two": "Thursday at 6:00 pm",
+      "level": "Beginner",
+      "description": "Fundamentals & Basics: Adavus, Jathis, Mudras, Padha Bhedas and Theory",
+      "imageUrl": "/dance_school/PXL_20231025_012124652.MP.jpg"
+    },
+    "Intermediate": {
+      "id": 2,
+      "class_one": "Monday at 6:00 pm",
+      "class_two": "Friday at 6:00 pm",
+      "level": "Intermediate",
+      "description": "Fundamentals & Items: Pushpanjalis, Alarippus, Jathiswarams, Dance Theory, etc",
+      "imageUrl": "/dance_school/Photo from Priyanka Raghuraman(7).jpg"
+    },
+    "Advanced": {
+      "id": 3,
+      "class_one": "Monday at 7:00 pm",
+      "class_two": "Saturday 9:30 am",
+      "level": "Advanced",
+      "description": "Advanced Dance items: Padhams, Varnams, Javalis, etc",
+      "imageUrl": "/dance_school/Photo from Priyanka Raghuraman(9).jpg"
+    },
+    "Senior": {
+      "id": 4,
+      "class_one": "Available on request",
+      "class_two": "Available on request",
+      "level": "Senior",
+      "description": "One-on-One mentorship and training available for senior artists looking to sharpen their technique and performance skills",
+      "imageUrl": "/dance_school/Photo from Priyanka Raghuraman(1).jpg"
+    }
+  };
+
+  const renderDanceCards = () => {
+
+    return Object.keys(danceLevels).map((level) => {
+      const { class_one, class_two, description, imageUrl } = danceLevels[level];
+
+      return (
+        <DanceClassCard
+          key={level}
+          level={level}
+          classOne={class_one}
+          classTwo={class_two}
+          description={description}
+          imageUrl={imageUrl}
+        />
+      );
+    });
+  };
+
 
     return (
         <>
@@ -19,111 +74,11 @@ const Classes = () => {
                     <div className="text-[#fef3c7] h-auto text-center py-12">
                         <h1 className="sm:text-2xl lg:text-4xl">CLASSES</h1>
                     </div>
-
-                    <div className="text-[#fef3c7] flex justify-center mx-20">
-                        <div className="flex-1 flex flex-col items-center font-semibold gap-32">
-                            <div className="sm:text-xl lg:text-2xl">Monday</div>
-                            <div className="sm:text-xl lg:text-2xl">Tuesday</div>
-                            <div className="sm:text-xl lg:text-2xl">Wednesday</div>
-                            <div className="sm:text-xl lg:text-2xl">Thursday</div>
-                            <div className="sm:text-xl lg:text-2xl">Friday</div>
-                            <div className="sm:text-xl lg:text-2xl">Saturday</div>
+                       <div className='flex flex-row justify-center'>
+                        {renderDanceCards()}
                         </div>
 
-                        <div className="flex-1 flex flex-col gap-12 sm:text-lg lg:text-xl">
-                            <div className="flex flex-col items-center gap-4">
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Beginnner</span>
-                                    <span className="w-24 text-center">5:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Intermediate</span>
-                                    <span className="w-24 text-center">6:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Adults (Senior)</span>
-                                    <span className="w-24 text-center">7:00 PM</span>
-                                </div>
 
-                                {/* More schedules for Monday if needed */}
-                            </div>
-                            <div className="flex flex-col items-center gap-4">
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Beginnner</span>
-                                    <span className="w-24 text-center">5:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Intermediate</span>
-                                    <span className="w-24 text-center">6:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Advanced</span>
-                                    <span className="w-24 text-center">7:00 PM</span>
-                                </div>
-                                {/* More schedules for Tuesday if needed */}
-                            </div>
-                            <div className="flex flex-col items-center gap-4">
-                                <div className="flex justify-between">
-                                        <span className="w-40 text-center">Beginnner</span>
-                                        <span className="w-24 text-center">5:00 PM</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span className="w-40 text-center">Intermediate</span>
-                                        <span className="w-24 text-center">6:00 PM</span>
-                                    </div>
-                                    <div className="flex justify-between">
-                                        <span className="w-40 text-center">Advanced</span>
-                                        <span className="w-24 text-center">7:00 PM</span>
-                                    </div>
-                                {/* More schedules for Wednesday if needed */}
-                            </div>
-                            <div className="flex flex-col items-center gap-4">
-                            <div className="flex justify-between">
-                                    <span className="w-40 text-center">Beginnner</span>
-                                    <span className="w-24 text-center">5:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Intermediate</span>
-                                    <span className="w-24 text-center">6:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Advanced</span>
-                                    <span className="w-24 text-center">7:00 PM</span>
-                                </div>
-                                {/* More schedules for Thursday if needed */}
-                            </div>
-                            <div className="flex flex-col items-center gap-4">
-                            <div className="flex justify-between">
-                                    <span className="w-40 text-center">Beginnner</span>
-                                    <span className="w-24 text-center">5:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Intermediate</span>
-                                    <span className="w-24 text-center">6:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Advanced</span>
-                                    <span className="w-24 text-center">7:00 PM</span>
-                                </div>
-                                {/* More schedules for Friday if needed */}
-                            </div>
-                            <div className="flex flex-col items-center gap-4">
-                            <div className="flex justify-between">
-                                    <span className="w-40 text-center">Beginnner</span>
-                                    <span className="w-24 text-center">5:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Intermediate</span>
-                                    <span className="w-24 text-center">6:00 PM</span>
-                                </div>
-                                <div className="flex justify-between">
-                                    <span className="w-40 text-center">Advanced</span>
-                                    <span className="w-24 text-center">7:00 PM</span>
-                                </div>
-                                {/* More schedules for Saturday if needed */}
-                            </div>
-                        </div>
-                    </div>
                     <DanceRegistrationButton/>
                 </div>
             </div>

@@ -123,9 +123,9 @@ const DanceRegistration = () => {
 
 
 
-        <div className='flex justify-center w-full h-1/2 '>
+        {/* <div className='flex justify-center w-full h-1/2 '>
           {renderDanceCards()}
-        </div>
+        </div> */}
 
         <div className='flex flex-col justify-center bg-black text-cream w-[40%] border-none rounded-md shadow-xl p-8 m-20 border-2 '>
           <div className='flex justify-center'>
@@ -184,14 +184,14 @@ const DanceRegistration = () => {
 
             <div className='py-6 flex gap-4 w-full justify-center items-center text-lg font-semibold'>
               <button
-                className="bg-lightcream hover:bg-neutral-300 text-black rounded-md p-3 transition duration-700"
+                className="text-cream font-bold border-2 border-cream hover:bg-cream hover:text-black transition delay-200 ease-in  py-2 px-4 rounded-md cursor-pointer max-w-xs text-center sm:text-xl lg:text-2xl"
                 type="submit"
               >
                 Submit
               </button>
 
               <button
-                className="bg-lightcream hover:bg-neutral-300 text-black rounded-md p-3 transition duration-700"
+                className="text-cream font-bold border-2 border-cream hover:bg-cream hover:text-black transition delay-200 ease-in  py-2 px-4 rounded-md cursor-pointer max-w-xs text-center sm:text-xl lg:text-2xl"
                 onClick={() => router.push('/')}
               >
                 <Link href='/'>Cancel</Link>
