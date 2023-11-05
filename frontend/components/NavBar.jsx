@@ -58,9 +58,9 @@ const NavBar = () => {
                 onMouseLeave={() => setToggleClassMenu(false)}
                 className="absolute transition ease-in-out delay-500 z-30 top-16 mt-2 w-[160px] mx-auto rounded-md shadow-lg "
               >
-                <div className="px-6 text-lightcream py-4 rounded-md flex flex-col gap-2 bg-gray-800">
-                  <Link href="/schedule" className="sm:text-md lg:text-xl hover:text-emerald-400 ">Schedule</Link>
-                  <Link href="/registration" className="sm:text-md lg:text-xl hover:text-emerald-400  ">Registration</Link>
+                <div className="px-6 text-cream py-4 rounded-md flex flex-col gap-2 bg-gray-800">
+                  <Link href="/schedule" className="sm:text-md lg:text-xl hover:text-stone-400 ">Schedule</Link>
+                  <Link href="/registration" className="sm:text-md lg:text-xl hover:text-stone-400  ">Registration</Link>
                 </div>
               </div>
             )
@@ -112,7 +112,7 @@ const NavBar = () => {
                      <Link href="/your-account">Account</Link>
                   <button
                     onClick={handleLogout}
-                    className="text-lightcream hover:text-emerald-400"
+                    className="text-cream hover:text-stone-400"
                   >
                     Logout
                   </button>
