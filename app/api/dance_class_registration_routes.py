@@ -67,7 +67,7 @@ def create_dance_registration():
         new_dance_apt = DanceClassRegistration(
                 # user_id=data["user_id"],
                 # NEED TO DEBUG
-                user_id=current_user.id,
+                # user_id=current_user.id,
                 # type cast level into an integer --> dance_class_id
 
                 dance_class_id=data["dance_class_id"],

@@ -20,35 +20,58 @@ const AdminDashboard = () => {
   const [classRegistrations, setClassRegistrations] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
   const [students, setStudents] = useState([])
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   // *************************************************************************************
 
 
 
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const inquiriesResponse = await axios.get('http://127.0.0.1:5000/api/serviceappointments/');
+  //       setInquiries(inquiriesResponse.data.service_appointments);
+
+  //       const registrationsResponse = await axios.get('http://127.0.0:5000/api/danceclassregistrations/');
+  //       setClassRegistrations(registrationsResponse.data.dance_class_resigrations);
+
+  //       const testimonialsResponse = await axios.get('http://127.0.0.1:5000/api/testimonials/');
+  //       setTestimonials(testimonialsResponse.data.testimonials);
+
+
+  //       const studentsResponse = await axios.get('http://127.0.0.1:5000/api/users/');
+  //       setStudents(studentsResponse.data.users);
+
+
+  //       setIsLoading(false);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const inquiriesResponse = await axios.get('http://127.0.0.1:5000/api/serviceappointments/');
         setInquiries(inquiriesResponse.data.service_appointments);
-
-        const registrationsResponse = await axios.get('http://127.0.0:5000/api/danceclassregistrations/');
+  
+        const registrationsResponse = await axios.get('http://127.0.0.1:5000/api/danceclassregistrations/');
         setClassRegistrations(registrationsResponse.data.dance_class_resigrations);
-
+  
         const testimonialsResponse = await axios.get('http://127.0.0.1:5000/api/testimonials/');
         setTestimonials(testimonialsResponse.data.testimonials);
-
-
+  
         const studentsResponse = await axios.get('http://127.0.0.1:5000/api/users/');
         setStudents(studentsResponse.data.users);
-
-
+  
         setIsLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-
+  
     fetchData();
   }, []);
 
@@ -61,6 +84,14 @@ const AdminDashboard = () => {
 
 
   const renderInquiriesTab = () => {
+    const handleApproveInquiry = (inquiry) => {
+      // Implement the logic to approve the inquiry here to update the inquiry's status
+  };
+  
+    const handleRemoveInquiry = (inquiry) => {
+      // Implement the logic to remove the inquiry here to delete the inquiry
+  };
+  
     return (
       <div className="h-full flex items-center justify-center text-black">
         {isLoading ? (
@@ -86,6 +117,8 @@ const AdminDashboard = () => {
                       <div>Contact Phone Number: {pendingInquiry?.user?.phone_number}</div>
                       <div>Contact Address: {pendingInquiry?.user?.address}</div>
                       {/* DISPLAY THE APPROVE/REMOVE INQUIRY BUTTONS HERE */}
+                      <button className="bg-green-500 text-white px-3 py-1 rounded-full" onClick={() => handleApproveInquiry(pendingInquiry)}>Approve</button>
+                      <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleRemoveInquiry(pendingInquiry)}>Remove</button>
                     </div>
                   </div>
                 )) : <h2>No Pending Inquiries</h2>}
@@ -108,6 +141,7 @@ const AdminDashboard = () => {
                       <div>Contact Phone Number: {approvedInquiry?.user?.phone_number}</div>
                       <div>Contact Address: {approvedInquiry?.user?.address}</div>
                       {/* DISPLAY REMOVE INQUIRY BUTTON HERE */}
+                      <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleRemoveInquiry(pendingInquiry)}>Remove</button>
                     </div>
                   </div>
                 )) : <h2>No Inquiries At This Time</h2>}
@@ -147,6 +181,8 @@ const AdminDashboard = () => {
                     <div className="font-semibold">Contact Phone Number: {pendingRegistration?.user?.phone_number}</div>
                     <div className="font-semibold">Contact Address: {pendingRegistration?.user?.address}</div>
                     {/* INSERT APPROVE/REJECT REGISTRATION BUTTONS HERE */}
+                    <button className="bg-green-500 text-white px-3 py-1 rounded-full" onClick={() => handleApproveRegistration(pendingRegistration)}>Approve</button>
+                    <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleRejectRegistration(pendingRegistration)}>Reject</button>
                   </div>
                 )) : <h2>No Pending Class Registrations</h2>}
             </div>
@@ -168,6 +204,8 @@ const AdminDashboard = () => {
                     <div className="font-semibold">Contact Phone Number: {approvedRegistration?.user?.phone_number}</div>
                     <div className="font-semibold">Contact Address: {approvedRegistration?.user?.address}</div>
                     {/* INSERT DELETE REGISTRATION BUTTON HERE */}
+                    <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleDeleteRegistration(approvedRegistration)}>Delete</button>
+
                   </div>
                 )) : <h2>No Class Registrations At This Time</h2>}
             </div>
