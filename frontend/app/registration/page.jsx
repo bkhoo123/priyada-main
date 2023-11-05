@@ -88,7 +88,13 @@ const DanceRegistration = () => {
   };
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
+
+
+  if (!sessionUser) {
+    alert("Please log in or create an account first")
+  }
     console.log("THIS IS FORM DATA", formData)
     try {
       const response = await axios.post('http://127.0.0.1:5000/api/danceclassregistrations/new/', {
@@ -111,9 +117,6 @@ const DanceRegistration = () => {
     }
   };
 
-  if (!sessionUser) {
-    router.push('/login');
-  }
 
   return (
     <>
