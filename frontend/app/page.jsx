@@ -17,6 +17,7 @@ import BackgroundCarousel from '@/components/BackgroundCarousel'
 
 import axios from "axios"
 import DanceRegistrationButton from '@/components/DanceRegistrationButton'
+import ShortBio from '@/components/ShortBio'
 
 
 export default function Home() {
@@ -60,6 +61,7 @@ export default function Home() {
       <NavBar />
 
       <SplashPagePicture />
+      <ShortBio />
       {/* <AboutArtist/> */}
       <AboutStudio/>
       <Testimonial />
