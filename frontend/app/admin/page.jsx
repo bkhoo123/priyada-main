@@ -296,7 +296,7 @@ const AdminDashboard = () => {
           </TabPanel>
 
           <TabPanel className="h-full flex items-center justify-center">
-            {renderStudentsTab()}
+            {/* {renderStudentsTab()} */}
           </TabPanel>
 
         </Tabs>
