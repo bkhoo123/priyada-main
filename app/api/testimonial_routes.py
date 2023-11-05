@@ -23,7 +23,6 @@ def get_all_testimonials():
 @testimonial_bp.route('/',methods=["POST"])
 
 # @login_required
-
 def create_testimonial():
     """
     Create a new testimonial
@@ -37,7 +36,7 @@ def create_testimonial():
     if  create_testimonial_form.validate_on_submit():
         data =  create_testimonial_form.data
         new_testimonial = Testimonial(
-                user_id= current_user.id,
+                # user_id= current_user.id,
                 content= data["content"],
                 first_name=data["first_name"],
                 last_name=data["last_name"],
@@ -63,6 +62,7 @@ def delete_testimonial(testimonial_id):
     Delete a testimonial based on testimonial_id
     """
     # user_auth = current_user.authorization
+    print('current_user!!!!!!!!!',current_user)
     user_auth = "admin"
     testimonial = Testimonial.query.get(testimonial_id)
     if testimonial:

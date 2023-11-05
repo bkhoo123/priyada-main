@@ -4,7 +4,7 @@ pip install -r requirements.txt
 
 2. Run server
 
-flask --app backend run
+pipenv run flask run  
 
 3. Run tests
 http://localhost:5000/test
@@ -16,16 +16,16 @@ You should be able to see the following output:
 }
 
 4. Initialize database
-flask --app backend db init
+pipenv run flask db init
 
 5. Migrate database
-flask --app backend db migrate
+pipenv run flask db migrate
 
 6. Upgrade database
-flask --app backend db upgrade
+pipenv run flask upgrade
 
 7. Seed database
-flask --app backend seed all
+pipenv run flask seed all
 
 * Undo seed data (if needed)
-flask --app backend seed undo
+pipenv run flask seed undo
