@@ -9,9 +9,9 @@ const FAQ = () => {
   return (
     <>
       <NavBar />
-      <div className='faq-page bg-black text-cream flex flex-col items-center justify-center min-h-screen '>
-        <div className='faq-page-content max-w-800 p-6 bg-black shadow-md rounded-md text-left p-20 m-10'>
-          <h1 className='faq-page-title text-3xl font-bold mb-10 text-center '>
+      <div className='faq-page bg-black text-cream flex flex-col items-center justify-center min-h-screen ml-15 mr-15 '>
+        <div className='faq-page-content max-w-800 p-6 bg-black shadow-md rounded-md text-left p-20 m-20'>
+          <h1 className='faq-page-title text-3xl font-bold mb-20 text-center '>
             Frequently Asked Questions
           </h1>
           <div className='faq-page-text text-left gap-20'>
