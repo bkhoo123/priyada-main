@@ -14,9 +14,9 @@ module.exports = {
       },
       fontFamily: {
         'didactGothic':["Didact Gothic"],
-        'montserrat': ['Montserrat', 'sans-serif'],
-        'laila': ['Laila', 'serif'],
-        'worksans': ['"Work Sans"', 'sans'],
+        // 'montserrat': ['Montserrat', 'sans-serif'],
+        // 'laila': ['Laila', 'serif'],
+        // 'worksans': ['"Work Sans"', 'sans'],
         'poiretone': ["Poiret One"],
         'elsie':["Elsie"]
       },

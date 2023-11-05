@@ -31,7 +31,7 @@ const Testimonial = () => {
  return (
     <div className="bg-black text-lightcream p-4 rounded-lg shadow-md my-4">
       <h2 className="text-3xl text-center mb-4 relative z-10">Testimonials</h2>
-      <div className="mx-auto w-full max-w-screen-lg">
+      <div className="mx-auto w-full max-w-screen-lg ">
         <Carousel
           showThumbs={false}
           showStatus={false}

@@ -3,7 +3,7 @@ import React from 'react';
 
 const ServiceCard = () => {
   return (
-    <div className="container mx-auto p-6 flex justify-end items-center h-full bg-cover bg-center" style={{ backgroundImage: 'url("/splash_page/Splash page.jpg")' }}>
+    <div className="text-didactGothic container mx-auto p-6 flex justify-end items-center h-full bg-cover bg-center" style={{ backgroundImage: 'url("/splash_page/Splash page.jpg")' }}>
       <div className="flex flex-col items-start">
         <h1 className="text-4xl font-extrabold text-lightcream my-8">Artistic Beyond Dance</h1>
 

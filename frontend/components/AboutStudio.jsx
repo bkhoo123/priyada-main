@@ -33,7 +33,7 @@ const AboutStudio = () => {
     return (
         <>
             <div className='z-[0] bg-black flex flex-row justify-center items-center self-center px-20 py-32 my-20'>
-                <div className="flex-1 gap-10 flex flex-col justify-center items-center self-center">
+                <div className="flex-1 gap-20 flex flex-col justify-center items-center self-center">
 
                 <div className="relative w-[400px] h-[400px]">
                         <Image

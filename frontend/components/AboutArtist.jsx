@@ -61,7 +61,7 @@ const AboutArtist = () => {
                                             alt={item.alt}
                                             width={300}
                                             height={300}
-                                            className="rounded-full"
+                                            className="rounded-md"
                                         />
                                     </div>
                                     <div className="text-left text-cream sm:text-lg lg:text-xl leading-relaxed flex-1">

@@ -63,12 +63,14 @@ def create_dance_registration():
 
     if create_dance_apt_form.validate_on_submit():
         data = create_dance_apt_form.data
+        print("DANCE CLASS ID IN BACKEND*******************************", data["dance_class_id"])
         new_dance_apt = DanceClassRegistration(
+                # user_id=data["user_id"],
+                # NEED TO DEBUG
                 user_id=current_user.id,
-
                 # type cast level into an integer --> dance_class_id
-                dance_class_id=int(data["dance_class_id"]),
 
+                dance_class_id=data["dance_class_id"],
                 age=int(data['age']),
                 location=data['location'],
                 notes=data["notes"],

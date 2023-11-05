@@ -179,7 +179,8 @@ const YourAccount = () => {
       <div className='text-black mx-4 sm:mx-8 lg:mx-12 xl:mx-20'>
         {renderAccountInfo()}
         {renderBillingInfo()}
-        {renderClassInfo()}
+        <div className='flex flex-row justify-center flex-wrap'>  {renderClassInfo()}</div>
+
       </div>
 
       <Footer />

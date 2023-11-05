@@ -63,10 +63,10 @@ const CreateTestimonial = ({ isOpen, onRequestClose }) => {
   }
   else {
     return (
-      <div onClick={(e) => e.stopPropagation()} className="z-200 fixed left-1/3 mb-40 top-1/4 bg-white text-black w-full sm:w-1/2 md:w-1/3 p-7 rounded-md shadow-lg">
+      <div onClick={(e) => e.stopPropagation()} className="z-200 fixed left-1/3 mb-40 top-1/4 bg-stone-50 text-black w-full sm:w-1/2 md:w-1/3 p-7 rounded-md shadow-lg">
         <div className="flex justify-between items-center">
           <h1 className="sm:text-2xl lg:text-2xl font-bold">Leave a Testimonial</h1>
-          
+
           <button className="" onClick={() => handleCloseModal()}>X</button>
         </div>
         <form
@@ -82,7 +82,7 @@ const CreateTestimonial = ({ isOpen, onRequestClose }) => {
               value={firstName}
               onChange={handleChange}
               placeholder="Your first name"
-              className="text-black border rounded-md p-2 border-gray-300 focus:border-gray-400"
+              className="text-black border rounded-md p-2 border-gray-500 focus:border-gray-400"
             />
           </label>
 
@@ -94,14 +94,14 @@ const CreateTestimonial = ({ isOpen, onRequestClose }) => {
               value={lastName}
               onChange={handleChange}
               placeholder="Your last name"
-              className="text-black border rounded-md p-2 border-gray-300 focus:border-gray-400"
+              className="text-black border rounded-md p-2 border-gray-500 focus:border-gray-400"
             />
           </label>
 
           <label>
             <div>Who are you?</div>
             <select
-              className="text-black mt-5 mb-5"
+              className="border w-content rounded-md p-2 border-gray-500 text-black mt-5 mb-5 p-2"
               name="role"
               value={role}
               onChange={handleChange}
@@ -120,7 +120,7 @@ const CreateTestimonial = ({ isOpen, onRequestClose }) => {
               value={testimonial}
               onChange={handleChange}
               placeholder="Leave your testimonial here"
-              className="border-2 border-gray-300 rounded-md p-3"
+              className="border-2 border-gray-500 rounded-md p-3 resize-none "
               rows="5"
               cols="50"
             ></textarea>

@@ -10,7 +10,7 @@ const Services = () => {
     return (
         <>
             <NavBar />
-            <div className='bg-black'>
+            <div className='bg-black font-didactGothic'>
                 <div className=''>
                     <div className=''>
                         <ServiceCard />

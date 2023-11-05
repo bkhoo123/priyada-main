@@ -10,7 +10,7 @@ const AboutArtist = () => {
             <div className='artist-page pb-[10%]'>
                 <NavBar/>
                 <div className='artist-page-content'>
-                    <div className='artist-page-title font-elsie'>
+                    <div className='artist-page-title'>
                         <div>About the Artist</div>
                     </div>
                         <div className="artist-page-text">
