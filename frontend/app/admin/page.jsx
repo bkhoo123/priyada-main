@@ -19,6 +19,7 @@ const AdminDashboard = () => {
   const [inquiries, setInquiries] = useState([]);
   const [classRegistrations, setClassRegistrations] = useState([]);
   const [testimonials, setTestimonials] = useState([]);
+  const [students, setStudents] = useState([])
   const [isLoading, setIsLoading] = useState(true);
 
   // *************************************************************************************
@@ -29,13 +30,18 @@ const AdminDashboard = () => {
     const fetchData = async () => {
       try {
         const inquiriesResponse = await axios.get('http://127.0.0.1:5000/api/serviceappointments/');
-        setInquiries(inquiriesResponse.data);
+        setInquiries(inquiriesResponse.data.service_appointments);
 
         const registrationsResponse = await axios.get('http://127.0.0:5000/api/danceclassregistrations/');
-        setClassRegistrations(registrationsResponse.data);
+        setClassRegistrations(registrationsResponse.data.dance_class_resigrations);
 
         const testimonialsResponse = await axios.get('http://127.0.0.1:5000/api/testimonials/');
         setTestimonials(testimonialsResponse.data.testimonials);
+
+
+        const studentsResponse = await axios.get('http://127.0.0.1:5000/api/users/');
+        setStudents(studentsResponse.data.users);
+
 
         setIsLoading(false);
       } catch (error) {
@@ -232,6 +238,20 @@ const AdminDashboard = () => {
     return (
       <div className="h-full  flex items-center justify-center">
         {/* ADD CONTENT FOR STUDENTS */}
+        {users?.length > 0 ? users
+          .map((user, index) => (
+            <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
+              <p className="text-black mb-2 font-semibold">Name: {user?.first_name} {user?.last_name}</p>
+              <p className="text-black font-semibold">Level: {user?.level}</p>
+              <p className="text-black mb-2 font-semibold">Authorization: {user?.authorization}</p>
+              <p className="text-black font-semibold">Phone Number: {user?.phone_number}</p>
+              <p className="text-black font-semibold">Email: {user?.email}</p>
+              <p className="text-black font-semibold">Address: {user?.address}</p>
+              {/* INSERT form to change a students level and/or authorization */}
+
+            </div>
+          )) : <h2>No Users At This Time</h2>}
+
       </div>
     );
   };
