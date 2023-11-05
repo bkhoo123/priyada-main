@@ -11,13 +11,13 @@ const Services = () => {
         <>
             <NavBar />
             <div className='bg-black font-didactGothic'>
-                <div className=''>
-                    <div className=''>
+                <div className='font-didactGothic'>
+                    <div className='font-didactGothic'>
                         <ServiceCard />
                     </div>
                 </div>
 
-                 <div className="">
+                 <div className="text-didactGothic">
                       <CreateServiceEnquiry />
                 </div>
 
