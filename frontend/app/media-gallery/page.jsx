@@ -25,12 +25,12 @@ const MediaGallery = () => {
     }, [])
 
 
-    useEffect(() => {
-        if (!sessionUser) {
-            alert("You are not authorized to view this page. Please login.")
-            router.push("/login")
-        }
-    }, [sessionUser])
+    // useEffect(() => {
+    //     if (!sessionUser) {
+    //         alert("You are not authorized to view this page. Please login.")
+    //         router.push("/login")
+    //     }
+    // }, [sessionUser])
 
     const ArtistPictures = media?.filter(item => {
         return item.type === "Artist Pictures"

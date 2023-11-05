@@ -28,7 +28,7 @@ const CreateServiceEnquiry = () => {
   const { serviceId, appointmentDate, location, notes } = formData;
 
   const handleDateChange = (newDate) => {
-   let newFormattedDate= setDate(convertToYYYYMMDD(newDate));
+    let newFormattedDate = setDate(convertToYYYYMMDD(newDate));
     setFormData({
       ...formData,
       date: newFormattedDate
@@ -55,6 +55,10 @@ const CreateServiceEnquiry = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!sessionUser) {
+      alert("Please log in or create an account first")
+    }
     const formattedDate = convertToYYYYMMDD(date);
     setFormData({
       ...formData,
@@ -67,7 +71,7 @@ const CreateServiceEnquiry = () => {
         location: location,
         notes: notes,
       },
-      { withCredentials: true },
+        { withCredentials: true },
       );
 
       console.log("THIS IS RESPONSE", response)
@@ -81,82 +85,78 @@ const CreateServiceEnquiry = () => {
     }
   };
 
-  if (!sessionUser) {
-    alert("Please Login First.");
-    router.push('/login')
-  }
-  else {
-     return (
-  <div
-    className="h-screen bg-black w-screen bg-fill bg-center relative"
-    style={{
-      backgroundImage: `url('/artist_pictures/Artist_Picture (38).jpg')`, // Replace 'path_to_your_image.jpg' with the actual path to your image
-    }}
-  >
-    <div className="flex font-sans justify-center items-center gap-20 h-full">
-      <div className="max-w-lg font-sans  w-full p-8 rounded-xl bg-black bg-opacity-20 shadow-lg ">
-        <h1 className="text-3xl font-sans  text-lightcream mb-6 text-center ">Get In Touch</h1>
-        <form onSubmit={handleSubmit} className="font-sans flex flex-col space-y-6" action="">
-          <label>
-            <div className="font-sans text-lightcream text-bold bg-black bg-opacity-5 p-1">Please select the type of appointment you are interested in.</div>
-            <select
-              className="rounded-md text-black p-2 border bg-lightcream shadow-md"
-              value={serviceId}
-              onChange={handleChange}
-              name="serviceId"
-            >
-              <option value={1}>Makeup (Shows, Arangetrams, Photoshoots, Workshops)</option>
-              <option value={2}>Emcee/Hosting (Events, Shows, Television, etc)</option>
-              <option value={3}>Other/Nattuvangam</option>
-            </select>
-          </label>
-          <label>
-            <div className="text-lightcream text-bold bg-black bg-opacity-5 p-1">When do you require our services?</div>
-            <DatePicker
-              className="rounded-md text-black p-2 border bg-lightcream shadow-md"
-              onChange={handleDateChange}
-              value={date}
-              name="date"
-            />
-          </label>
-          <label>
-            <div className="text-lightcream text-bold bg-black bg-opacity-5 p-1">Where do you require this service?</div>
-            <input
-              name="location"
-              className="w-full text-black bg-lightcream border rounded-md shadow-md p-2"
-              placeholder="Cubberly Theatre, Palo Alto, CA"
-              onChange={handleChange}
-              value={location}
-            />
-          </label>
-          <label>
-            <div className="text-lightcream text-bold bg-black bg-opacity-5">Please provide any particular details or preferences regarding your appointment or event.</div>
-            <textarea
-              placeholder="Hello, I am looking for a makeup artist for my dance showcase next month..."
-              className="w-full h-40 text-black bg-lightcream border rounded-md shadow-md p-3 resize-none"
-              onChange={handleChange}
-              name="notes"
-              value={notes}
-            ></textarea>
-          </label>
-          <div className="py-6 flex gap-4 justify-center m-15">
-            <button
-              className="bg-teal-700  hover:bg-stone-500 text-lightcream rounded-lg p-2 transition duration-700"
-              type="submit"
-            >
-              Submit
-            </button>
-            <button className="bg-teal-700  text-lightcream rounded-lg p-2 hover:bg-stone-500 transition duration-700">
-              <Link href="/">Return to Home Page</Link>
-            </button>
-          </div>
-        </form>
+  // else {
+  return (
+    <div
+      className="h-screen bg-black w-screen bg-fill bg-center relative"
+      style={{
+        backgroundImage: `url('/artist_pictures/Artist_Picture (38).jpg')`, // Replace 'path_to_your_image.jpg' with the actual path to your image
+      }}
+    >
+      <div className="flex font-sans justify-center items-center gap-20 h-full">
+        <div className="max-w-lg font-sans  w-full p-8 rounded-xl bg-black bg-opacity-20 shadow-lg ">
+          <h1 className="text-3xl font-sans  text-lightcream mb-6 text-center ">Get In Touch</h1>
+          <form onSubmit={handleSubmit} className="font-sans flex flex-col space-y-6" action="">
+            <label>
+              <div className="font-sans text-lightcream text-bold bg-black bg-opacity-5 p-1">Please select the type of appointment you are interested in.</div>
+              <select
+                className="rounded-md text-black p-2 border bg-lightcream shadow-md"
+                value={serviceId}
+                onChange={handleChange}
+                name="serviceId"
+              >
+                <option value={1}>Makeup (Shows, Arangetrams, Photoshoots, Workshops)</option>
+                <option value={2}>Emcee/Hosting (Events, Shows, Television, etc)</option>
+                <option value={3}>Other/Nattuvangam</option>
+              </select>
+            </label>
+            <label>
+              <div className="text-lightcream text-bold bg-black bg-opacity-5 p-1">When do you require our services?</div>
+              <DatePicker
+                className="rounded-md text-black p-2 border bg-lightcream shadow-md"
+                onChange={handleDateChange}
+                value={date}
+                name="date"
+              />
+            </label>
+            <label>
+              <div className="text-lightcream text-bold bg-black bg-opacity-5 p-1">Where do you require this service?</div>
+              <input
+                name="location"
+                className="w-full text-black bg-lightcream border rounded-md shadow-md p-2"
+                placeholder="Cubberly Theatre, Palo Alto, CA"
+                onChange={handleChange}
+                value={location}
+              />
+            </label>
+            <label>
+              <div className="text-lightcream text-bold bg-black bg-opacity-5">Please provide any particular details or preferences regarding your appointment or event.</div>
+              <textarea
+                placeholder="Hello, I am looking for a makeup artist for my dance showcase next month..."
+                className="w-full h-40 text-black bg-lightcream border rounded-md shadow-md p-3 resize-none"
+                onChange={handleChange}
+                name="notes"
+                value={notes}
+              ></textarea>
+            </label>
+            <div className="py-6 flex gap-4 justify-center m-15">
+              <button
+                className="bg-teal-700  hover:bg-stone-500 text-lightcream rounded-lg p-2 transition duration-700"
+                type="submit"
+              >
+                Submit
+              </button>
+              <button className="bg-teal-700  text-lightcream rounded-lg p-2 hover:bg-stone-500 transition duration-700">
+                <Link href="/">Return to Home Page</Link>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
 
-  }
+  // }
 };
 
 export default CreateServiceEnquiry;
