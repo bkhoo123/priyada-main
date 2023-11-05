@@ -28,6 +28,9 @@ const Testimonial = () => {
         console.error('Error fetching testimonials:', error);
       });
   }, []);
+
+
+
  return (
     <div className="bg-black text-cream p-4 rounded-lg shadow-md my-4">
       <h2 className="text-3xl text-center mb-4 relative z-10">Testimonials</h2>

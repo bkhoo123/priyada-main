@@ -17,12 +17,13 @@ const AdminDashboard = () => {
 
 
 
-  // Create separate useEffect for each data fetch
+  // FOR SERVICE ENQUIRIES
   useEffect(() => {
     const fetchInquiries = async () => {
       try {
         const inquiriesResponse = await axios.get('http://127.0.0.1:5000/api/serviceappointments/');
         setInquiries(inquiriesResponse.data);
+        setIsLoading(false)
         console.log("THIS IS INQUIRIES", inquiries)
       } catch (error) {
         console.error('Error fetching inquiries:', error);
@@ -32,11 +33,16 @@ const AdminDashboard = () => {
     fetchInquiries();
   }, []);
 
+
+
+
+// FOR DANCE CLASS REGISTRATIONS
   useEffect(() => {
     const fetchClassRegistrations = async () => {
       try {
         const registrationsResponse = await axios.get('http://127.0.0.1:5000/api/danceclassregistrations/');
         setClassRegistrations(registrationsResponse.data);
+          setIsLoading(false)
       } catch (error) {
         console.error('Error fetching class registrations:', error);
       }
@@ -45,12 +51,17 @@ const AdminDashboard = () => {
     fetchClassRegistrations();
   }, []);
 
+
+
+
+// FOR TESTIMONIALS
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
         const testimonialsResponse = await axios.get('http://127.0.0.1:5000/api/testimonials/');
         const fetchedTestimonials = testimonialsResponse.data.testimonials;
         setTestimonials(fetchedTestimonials);
+          setIsLoading(false)
       } catch (error) {
         console.error('Error fetching testimonials:', error);
       }
@@ -106,7 +117,7 @@ const AdminDashboard = () => {
 
 
 
-          {/* CLASS REGISTRATIONSTAB */}
+          {/* CLASS REGISTRATIONS TAB */}
 
 
           <TabPanel className="h-full flex items-center justify-center">
@@ -129,9 +140,14 @@ const AdminDashboard = () => {
 
                   </div>
                 ))
-              ) : <div>No Registrations at this time</div>}
+              ) : <div className='text-black'>No Registrations at this time</div>}
             </div>
           </TabPanel>
+
+
+
+                  {/* TESTIMONIALS TAB */}
+
 
           <TabPanel className="h-full flex items-center justify-center">
             <div className="h-full  flex items-center justify-center">

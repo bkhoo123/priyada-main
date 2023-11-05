@@ -35,6 +35,7 @@ const TestimonialCard = ({ testimony, onTestimonialDelete }) => {
         <div className="text-cream text-center text-m italic">{testimony.role}</div>
 
 {/* REMOVE A TESTIMONY */}
+
       {/* <div className="text-red-500 text-center text-m italic">
             <button
               className="bg-inherit italic font-bold tracking-wider text-red-700 rounded-md m-5 transition duration-700"
