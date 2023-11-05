@@ -40,18 +40,18 @@ const NavBar = () => {
         <div className="flex items-center mr-2">
           <Image className=" rounded-lg" src={Logo} alt="Priyada Arts Logo" width={50} height={50} />
         </div>
-        <div className="text-2xl"><Link href="/">Priyada Arts</Link></div>
+        <div className="text-3xl"><Link href="/">Priyada Arts</Link></div>
       </div>
 
       {/* NavLinks */}
       <div className="flex space-x-8 items-center">
 
-      <nav className="text-xl">
+      <nav className="text-2xl">
           <Link href="/about/artist">About</Link>
         </nav>
         {/* Class Schedule / Registration Drop Down Menu */}
         <nav onMouseEnter={() => setToggleClassMenu(true)} onClick={() => setToggleClassMenu(!setToggleClassMenu)} className=" bg-inherit text-2xl flex gap-2 cursor-pointer">
-        <span className="text-xl ">Classes</span>
+        <span className="text-2xl ">Classes</span>
         {
             toggleClassMenu && (
               <div
@@ -67,11 +67,11 @@ const NavBar = () => {
           }
         </nav>
 
-        <nav className="text-xl">
+        <nav className="text-2xl">
           <Link href="/media-gallery">Awards / Gallery</Link>
         </nav>
 
-        <nav className="text-xl">
+        <nav className="text-2xl">
           <Link href="/services">Services</Link>
         </nav>
 {/* Profile or Login/Signup */}
@@ -96,7 +96,7 @@ const NavBar = () => {
               <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            <span className="text-l">
+            <span className="text-2xl">
               {sessionUser.first_name} {sessionUser.last_name}
             </span>
 
@@ -144,11 +144,11 @@ const NavBar = () => {
             <span className="text-xl">Login / Sign Up</span>
             {toggleMenu && (
               <div className="absolute z-10 top-16 mt-2 w-[180px] rounded-md shadow-lg">
-                <div className="px-6 py-4 rounded-md bg-gray-800 flex flex-col gap-2">
-                  <Link href="/signup" className="text-lightcream hover:text-emerald-400">
+                <div className="px-6 py-4 rounded-md bg-stone-800 flex flex-col gap-2">
+                  <Link href="/signup" className="text-cream hover:text-stone-400">
                     Sign Up
                   </Link>
-                  <Link href="/login" className="text-lightcream hover:text-emerald-400">
+                  <Link href="/login" className="text-cream hover:text-stone-500">
                     Login
                   </Link>
                 </div>
