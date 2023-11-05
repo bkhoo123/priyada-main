@@ -36,44 +36,44 @@ const CarouselHashMap = [
 ]
 
 const AboutArtist = () => {
-    return (
-        <div>
-            <div className='bg-black flex h-auto relative flex-col py-20 mb-50'>
-                <div className='mx-auto text-center'>
-                    <div className='text-2xl  my-10 text-cream sm:text-3xl capitalize'>
-                        <div> About the Artist</div>
-                    </div>
-                        <div className="text-xl text-cream leading-relaxed w-4/5 mx-auto">
-                         <Carousel
-                            showThumbs={false}
-                            showStatus={false}
-                            autoPlay={true}
-                            infiniteLoop={true}
-                            interval={10000}
-                            transitionTime={1000}
-                            centerSlidePercentage={100}
-                         >
-                            {CarouselHashMap.map((item, index) => (
-                                <div key={index} className="flex gap-20 items-center justify-center">
-                                    <div className="flex flex-col items-center justify-center flex-1">
-                                        <Image
-                                            src={item.src}
-                                            alt={item.alt}
-                                            width={300}
-                                            height={300}
-                                            className="rounded-md"
-                                        />
-                                    </div>
-                                    <div className="text-left text-cream sm:text-lg lg:text-xl leading-relaxed flex-1">
-                                        {item.content}
-                                    </div>
-                                </div>
-                            ))}
-                         </Carousel>
-                        </div>
-                    </div>
+  return (
+    <div className="bg-black flex h-auto py-20 mb-50">
+      <div className="container mx-auto flex justify-center items-center">
+        <div className="lg:w-1/2 pr-8">
+
+          <div className="text-lg text-didactGothic text-cream leading-relaxed w-full">
+            <Carousel
+              showThumbs={false}
+              showStatus={false}
+              autoPlay={true}
+              infiniteLoop={true}
+              interval={10000}
+              transitionTime={1000}
+              centerSlidePercentage={100}
+              className="carousel-root"
+            >
+              {CarouselHashMap.map((item, index) => (
+                <div key={index} className="flex items-center justify-center">
+                  <div className="w-full lg:w-3/5 flex flex-col items-center justify-center">
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      width={500}
+                      height={500}
+                      className="rounded-md"
+                    />
+                  </div>
+                  <div className="w-full lg:w-2/5 pl-8 text-cream">
+                    {item.content}
+                  </div>
                 </div>
+              ))}
+            </Carousel>
+          </div>
         </div>
-    )
-}
-export default AboutArtist
+      </div>
+    </div>
+  );
+};
+
+export default AboutArtist;

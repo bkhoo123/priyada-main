@@ -46,7 +46,9 @@ const NavBar = () => {
       {/* NavLinks */}
       <div className="flex space-x-8 items-center">
 
-
+      <nav className="text-xl">
+          <Link href="/about/artist">About</Link>
+        </nav>
         {/* Class Schedule / Registration Drop Down Menu */}
         <nav onMouseEnter={() => setToggleClassMenu(true)} onClick={() => setToggleClassMenu(!setToggleClassMenu)} className=" bg-inherit text-2xl flex gap-2 cursor-pointer">
         <span className="text-xl ">Classes</span>
@@ -56,7 +58,7 @@ const NavBar = () => {
                 onMouseLeave={() => setToggleClassMenu(false)}
                 className="absolute transition ease-in-out delay-500 z-30 top-16 mt-2 w-[160px] mx-auto rounded-md shadow-lg "
               >
-                <div className="px-6 text-white py-4 rounded-md flex flex-col gap-2 bg-gray-800">
+                <div className="px-6 text-lightcream py-4 rounded-md flex flex-col gap-2 bg-gray-800">
                   <Link href="/schedule" className="sm:text-md lg:text-xl hover:text-emerald-400 ">Schedule</Link>
                   <Link href="/registration" className="sm:text-md lg:text-xl hover:text-emerald-400  ">Registration</Link>
                 </div>
@@ -110,7 +112,7 @@ const NavBar = () => {
                      <Link href="/your-account">Account</Link>
                   <button
                     onClick={handleLogout}
-                    className="text-white hover:text-emerald-400"
+                    className="text-lightcream hover:text-emerald-400"
                   >
                     Logout
                   </button>
@@ -143,10 +145,10 @@ const NavBar = () => {
             {toggleMenu && (
               <div className="absolute z-10 top-16 mt-2 w-[180px] rounded-md shadow-lg">
                 <div className="px-6 py-4 rounded-md bg-gray-800 flex flex-col gap-2">
-                  <Link href="/signup" className="text-white hover:text-emerald-400">
+                  <Link href="/signup" className="text-lightcream hover:text-emerald-400">
                     Sign Up
                   </Link>
-                  <Link href="/login" className="text-white hover:text-emerald-400">
+                  <Link href="/login" className="text-lightcream hover:text-emerald-400">
                     Login
                   </Link>
                 </div>

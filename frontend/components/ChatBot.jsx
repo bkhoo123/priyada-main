@@ -36,10 +36,10 @@ const ChatBot = () => {
   };
 
   useEffect(() => {
-    scrollToBottom() 
-    hideWhiteCloudMessage(); 
-    
-    
+    scrollToBottom()
+    hideWhiteCloudMessage();
+
+
   }, [messages]);
 
   const sendMessage = async (e) => {
@@ -84,7 +84,7 @@ const ChatBot = () => {
           {/* Chat Header */}
           <div className="my-2 text-xl font-semibold">Chat with PriyadaGPT</div>
 
-          <hr className="border-gray-300 mx-[-16px]" />
+          <hr className="border-stone-300 mx-[-16px]" />
 
           {/* ChatSubHeader Tips & Tricks */}
           <div className="flex flex-col gap-2 mt-2">
@@ -94,7 +94,7 @@ const ChatBot = () => {
             <div>Ask me any questions you might have about the dance studio</div>
           </div>
 
-          <hr className="border-gray-300 mx-[-16px] my-4" />
+          <hr className="border-stone-300 mx-[-16px] my-4" />
 
           {/* Chat messages will go here */}
           <div className="my-4 flex flex-col">
@@ -104,7 +104,7 @@ const ChatBot = () => {
                 className={`
                   my-2 p-2 rounded
                   ${message.type === 'user'
-                    ? 'bg-cyan-600 text-white self-end font-semibold'
+                    ? 'bg-cyan-600 text-lightcream self-end font-semibold'
                     : 'bg-stone-200 self-start font-semibold'}
                   max-w-2/3
                 `}
@@ -140,8 +140,8 @@ const ChatBot = () => {
 
       {/* White Cloud Message */}
 
-      {!toggleChat && showWhiteCloudMessage  && (  
-        <div className="relative p-4 m-2 tracking-wider bg-white font-semibold text-black rounded-3xl shadow-md w-[240px] h-auto">
+      {!toggleChat && showWhiteCloudMessage  && (
+        <div className="relative p-4 m-2 tracking-wider bg-lightcream font-semibold text-black rounded-3xl shadow-md w-[240px] h-auto">
           <AnimatedText timer={15} message="Hi! PriyadaGPT here. Click me if you need help or have any questions." />
         </div>
       )}

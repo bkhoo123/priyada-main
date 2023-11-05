@@ -56,11 +56,11 @@ const ContactUs = ({ toggleModal, setToggleModal }) => {
         </label>
 
         <div className="py-6 flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="w-full sm:w-auto bg-gray-700 font-semibold text-white rounded-md p-2 transition duration-700 hover:bg-gray-400">
+          <button className="w-full sm:w-auto bg-gray-700 font-semibold text-lightcream rounded-md p-2 transition duration-700 hover:bg-gray-400">
             Submit
           </button>
 
-          <button className="w-full sm:w-auto bg-gray-700 font-semibold text-white rounded-md p-2 transition duration-500 hover:bg-gray-400 mt-2 sm:mt-0">
+          <button className="w-full sm:w-auto bg-gray-700 font-semibold text-lightcream rounded-md p-2 transition duration-500 hover:bg-gray-400 mt-2 sm:mt-0">
             Close
           </button>
         </div>

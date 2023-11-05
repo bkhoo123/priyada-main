@@ -60,7 +60,7 @@ export default function Home() {
       <NavBar />
 
       <SplashPagePicture />
-      <AboutArtist/>
+      {/* <AboutArtist/> */}
       <AboutStudio/>
       <Testimonial />
       <NewTestimonialButton onButtonClick={openModal} />

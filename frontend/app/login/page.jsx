@@ -104,11 +104,11 @@ const Login = () => {
               className="border-2 p-2 w-full rounded-md border-gray-300"
             />
 
-            <button type="submit" className="w-full p-3 bg-cyan-700 text-white rounded-md font-semibold hover:bg-gray-600 transition duration-700">
+            <button type="submit" className="w-full p-3 bg-cyan-700 text-lightcream rounded-md font-semibold hover:bg-gray-600 transition duration-700">
               Login
             </button>
 
-            <button onClick={handleDemo} className="w-full p-3 bg-cyan-700 text-white rounded-md font-semibold hover:bg-gray-600 transition duration-700">
+            <button onClick={handleDemo} className="w-full p-3 bg-cyan-700 text-lightcream rounded-md font-semibold hover:bg-gray-600 transition duration-700">
               Demo Login
             </button>
 
