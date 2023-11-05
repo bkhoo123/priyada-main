@@ -72,12 +72,12 @@ const CreateServiceEnquiry = () => {
 
       console.log("THIS IS RESPONSE", response)
       if (response) {
-        alert("Thank you. Your request has been sent.");
+        alert("Thank you. Your request has been submitted.");
         router.push("/");
       }
     } catch (error) {
       console.error(error);
-      alert("Sorry, There was an error. Failed to submit form.");
+      alert("Failed to submit form.");
     }
   };
 
@@ -88,19 +88,19 @@ const CreateServiceEnquiry = () => {
   else {
      return (
   <div
-    className="h-screen bg-black w-screen bg-fill bg-center rounded-lg relative"
+    className="h-screen bg-black w-screen bg-fill bg-center relative"
     style={{
       backgroundImage: `url('/artist_pictures/Artist_Picture (38).jpg')`, // Replace 'path_to_your_image.jpg' with the actual path to your image
     }}
   >
     <div className="flex justify-center items-center h-full">
       <div className="max-w-lg w-full p-8 rounded-xl bg-black bg-opacity-20 shadow-lg ">
-        <h1 className="text-3xl font-bold text-lightcream mb-6 text-center ">Get In Touch</h1>
-        <form onSubmit={handleSubmit} className="flex flex-col space-y-6 font-didactGothic" action="">
+        <h1 className="text-3xl font-bold text-white mb-6 text-center ">Get In Touch</h1>
+        <form onSubmit={handleSubmit} className="flex flex-col space-y-6" action="">
           <label>
-            <div className="text-lightcream text-bold bg-black bg-opacity-5 p-1">Please select the type of appointment you are interested in.</div>
+            <div className="text-white text-bold bg-black bg-opacity-5 p-1">Please select the type of appointment you are interested in.</div>
             <select
-              className="rounded-md text-black p-2 border bg-lightcream shadow-md"
+              className="rounded-md text-black p-2 border bg-white shadow-md"
               value={serviceId}
               onChange={handleChange}
               name="serviceId"
@@ -111,29 +111,29 @@ const CreateServiceEnquiry = () => {
             </select>
           </label>
           <label>
-            <div className="text-lightcream text-bold bg-black bg-opacity-5 p-1">When do you require our services?</div>
+            <div className="text-white text-bold bg-black bg-opacity-5 p-1">When do you require our services?</div>
             <DatePicker
-              className="rounded-md text-black p-2  bg-lightcream shadow-md"
+              className="rounded-md text-black p-2 border bg-white shadow-md"
               onChange={handleDateChange}
               value={date}
               name="date"
             />
           </label>
           <label>
-            <div className="text-lightcream text-bold bg-black bg-opacity-5 p-1">Where do you require this service?</div>
+            <div className="text-white text-bold bg-black bg-opacity-5 p-1">Where do you require this service?</div>
             <input
               name="location"
-              className="w-full text-black bg-lightcream rounded-md shadow-md p-2"
+              className="w-full text-black bg-white border rounded-md shadow-md p-2"
               placeholder="Cubberly Theatre, Palo Alto, CA"
               onChange={handleChange}
               value={location}
             />
           </label>
           <label>
-            <div className="text-lightcream text-bold bg-black bg-opacity-5">Please provide any particular details or preferences regarding your appointment or event.</div>
+            <div className="text-white text-bold bg-black bg-opacity-5">Please provide any particular details or preferences regarding your appointment or event.</div>
             <textarea
               placeholder="Hello, I am looking for a makeup artist for my dance showcase next month..."
-              className="w-full h-40 text-black bg-lightcream rounded-md shadow-md p-3 resize-none"
+              className="w-full h-40 text-black bg-white border rounded-md shadow-md p-3 resize-none"
               onChange={handleChange}
               name="notes"
               value={notes}
@@ -141,12 +141,12 @@ const CreateServiceEnquiry = () => {
           </label>
           <div className="py-6 flex gap-4 justify-center m-15">
             <button
-              className="bg-teal-700 font-semibold hover:bg-teal-900 text-lightcream rounded-md p-2 transition duration-700"
+              className="bg-teal-700 font-semibold hover:bg-stone-500 text-white rounded-sm p-2 transition duration-700"
               type="submit"
             >
               Submit
             </button>
-            <button className="bg-teal-700 font-semibold hover:bg-teal-900 text-lightcream rounded-md p-2 transition duration-700">
+            <button className="bg-teal-700 font-semibold text-white rounded-sm p-2 hover:bg-stone-500 transition duration-700">
               <Link href="/">Return to Home Page</Link>
             </button>
           </div>

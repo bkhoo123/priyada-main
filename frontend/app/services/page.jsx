@@ -9,21 +9,23 @@ import ServiceCard from '@/components/ServiceCard';
 const Services = () => {
     return (
         <>
+            <div className='bg-white'>
             <NavBar />
-            <div className='bg-black font-didactGothic'>
-                <div className='font-didactGothic'>
-                    <div className='font-didactGothic'>
+            <div className='bg-white font-worksans'>
+                <div className='bg-whitefont-didactGothic'>
+                    <div className='bg-white font-didactGothic'>
                         <ServiceCard />
                     </div>
                 </div>
 
-                 <div className="text-didactGothic">
+                 <div className="bg-white text-didactGothic">
                       <CreateServiceEnquiry />
                 </div>
 
             </div>
                 <Footer />
                 <ChatBot />
+        </div>
         </>
     )
 }
