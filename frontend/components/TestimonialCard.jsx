@@ -34,9 +34,8 @@ const TestimonialCard = ({ testimony, onTestimonialDelete }) => {
 
         <div className="text-cream text-center text-m italic">{testimony.role}</div>
 
-     {/*  add conditional rendering */}
-     {sessionUser && sessionUser.id === testimony.user_id || sessionUser && sessionUser.authorization === "admin"?(<>
-      <div className="text-red-500 text-center text-m italic">
+{/* REMOVE A TESTIMONY */}
+      {/* <div className="text-red-500 text-center text-m italic">
             <button
               className="bg-inherit italic font-bold tracking-wider text-red-700 rounded-md m-5 transition duration-700"
               type="button"
@@ -45,9 +44,7 @@ const TestimonialCard = ({ testimony, onTestimonialDelete }) => {
             >
               {isDeleting ? '(Removing This Testimony...)' : '(Remove This Testimony)'}
             </button>
-          </div>
-
-     </>):null}
+          </div> */}
 
       </div>
     </div>

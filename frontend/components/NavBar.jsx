@@ -108,8 +108,8 @@ const NavBar = () => {
                 >
                 <div className="px-6 py-4 rounded-md bg-gray-800 flex flex-col gap-2 justify-start items-start">
 
-
-                     <Link href="/your-account">Account</Link>
+                    {sessionUser.authorization === 'admin' ? <Link href='/admin'>Admin Portal</Link>:null}
+                    <Link href="/your-account">Account</Link>
                   <button
                     onClick={handleLogout}
                     className="text-cream hover:text-stone-400"

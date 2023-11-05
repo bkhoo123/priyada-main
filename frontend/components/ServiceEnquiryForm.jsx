@@ -95,7 +95,7 @@ const CreateServiceEnquiry = () => {
   >
     <div className="flex font-sans justify-center items-center gap-20 h-full">
       <div className="max-w-lg font-sans  w-full p-8 rounded-xl bg-black bg-opacity-20 shadow-lg ">
-        <h1 className="text-3xl font-sans font-bold text-lightcream mb-6 text-center ">Get In Touch</h1>
+        <h1 className="text-3xl font-sans  text-lightcream mb-6 text-center ">Get In Touch</h1>
         <form onSubmit={handleSubmit} className="font-sans flex flex-col space-y-6" action="">
           <label>
             <div className="font-sans text-lightcream text-bold bg-black bg-opacity-5 p-1">Please select the type of appointment you are interested in.</div>
@@ -141,12 +141,12 @@ const CreateServiceEnquiry = () => {
           </label>
           <div className="py-6 flex gap-4 justify-center m-15">
             <button
-              className="bg-teal-700 font-semibold hover:bg-stone-500 text-lightcream rounded-sm p-2 transition duration-700"
+              className="bg-teal-700  hover:bg-stone-500 text-lightcream rounded-lg p-2 transition duration-700"
               type="submit"
             >
               Submit
             </button>
-            <button className="bg-teal-700 font-semibold text-lightcream rounded-sm p-2 hover:bg-stone-500 transition duration-700">
+            <button className="bg-teal-700  text-lightcream rounded-lg p-2 hover:bg-stone-500 transition duration-700">
               <Link href="/">Return to Home Page</Link>
             </button>
           </div>
