@@ -108,8 +108,8 @@ const NavBar = () => {
                 >
                 <div className="px-6 py-4 rounded-md bg-gray-800 flex flex-col gap-2 justify-start items-start">
 
-
-                     <Link href="/your-account">Account</Link>
+                    {sessionUser.authorization === 'admin' ? <Link href='/admin'>Admin Portal</Link>:null}
+                    <Link href="/your-account">Account</Link>
                   <button
                     onClick={handleLogout}
                     className="text-cream hover:text-stone-400"
@@ -141,14 +141,14 @@ const NavBar = () => {
               <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
               <circle cx="12" cy="7" r="4" />
             </svg>
-            <span className="text-xl">Login / Sign Up</span>
+            <span className="text-xl sm:text-xl lg:text-2xl hover:text-stone-400">Login / Sign Up</span>
             {toggleMenu && (
               <div className="absolute z-10 top-16 mt-2 w-[180px] rounded-md shadow-lg">
                 <div className="px-6 py-4 rounded-md bg-stone-800 flex flex-col gap-2">
-                  <Link href="/signup" className="text-cream hover:text-stone-400">
+                  <Link href="/signup" className="text-cream sm:text-md lg:text-xl hover:text-stone-400">
                     Sign Up
                   </Link>
-                  <Link href="/login" className="text-cream hover:text-stone-500">
+                  <Link href="/login" className="text-cream sm:text-md lg:text-xl hover:text-stone-400">
                     Login
                   </Link>
                 </div>
