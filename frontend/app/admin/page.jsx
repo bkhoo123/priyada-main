@@ -155,21 +155,21 @@ const AdminDashboard = () => {
     return (
       <div className="h-full flex items-center justify-center">
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="flex justify-center">
 
             {/* Display Pending Dance Class Registrations */}
             <div>
-              <div className="text-2xl font-bold mb-4">Pending Registrations</div>
+              <div className="text-2xl font-bold mb-1">Pending Registrations</div>
               {classRegistrations?.length > 0 ? classRegistrations
                 .filter(registration => !registration?.is_approved)
                 .map((pendingRegistration, index) => (
-                  <div key={index} className="rounded-xl shadow-lg p-6 mb-6 bg-stone-100 text-black">
-                    <div className="text-lg mb-4 font-semibold">Inquiry From: {pendingRegistration.inquiry?.user?.first_name} {pendingRegistration?.user?.last_name}</div>
+                  <div key={index} className="rounded-xl shadow-lg p-6 mb-1 bg-stone-100 text-black">
+                    <div className="text-lg mb-1 font-semibold">Inquiry From: {pendingRegistration.inquiry?.user?.first_name} {pendingRegistration?.user?.last_name}</div>
                     <div className="font-semibold">Level: {pendingRegistration?.dance_class_id === 1 ? "Beginner" : pendingRegistration?.dance_class_id === 2 ? "Intermediate" : "Advanced/Senior"}</div>
                     <div className="font-semibold">Age: {pendingRegistration?.age}</div>
                     <div className="font-semibold">Requested Location: {pendingRegistration?.location}</div>
                     <div className="font-semibold">Message: {pendingRegistration?.notes}</div>
-                    <div className="mt-4 font-semibold">Contact Info:</div>
+                    <div className="mt-2 font-semibold">Contact Info:</div>
                     <div className="font-semibold">Contact Email: {pendingRegistration?.user?.email}</div>
                     <div className="font-semibold">Contact Phone Number: {pendingRegistration?.user?.phone_number}</div>
                     <div className="font-semibold">Contact Address: {pendingRegistration?.user?.address}</div>
@@ -180,12 +180,12 @@ const AdminDashboard = () => {
 
             {/* Display Approved Dance Class Registrations */}
             <div>
-              <div className="text-2xl text-black font-bold mb-4">Approved Registrations</div>
+              <div className="text-2xl text-black font-bold mb-2">Approved Registrations</div>
               {classRegistrations?.length > 0 ? classRegistrations
                 .filter(registration => registration?.is_approved)
                 .map((approvedRegistration, index) => (
-                  <div key={index} className="rounded-xl shadow-lg p-6 mb-6 bg-stone-100 text-black">
-                    <div className="text-lg mb-4 font-semibold">Inquiry From: {approvedRegistration?.inquiry?.user?.first_name} {approvedRegistration?.user?.last_name}</div>
+                  <div key={index} className="rounded-xl shadow-lg p-6 mb-2 bg-stone-100 text-black">
+                    <div className="text-lg mb-2 font-semibold">Inquiry From: {approvedRegistration?.inquiry?.user?.first_name} {approvedRegistration?.user?.last_name}</div>
                     <div className="font-semibold">Level: {approvedRegistration?.dance_class_id === 1 ? "Beginner" : approvedRegistration?.dance_class_id === 2 ? "Intermediate" : "Advanced/Senior"}</div>
                     <div className="font-semibold">Age: {approvedRegistration?.age}</div>
                     <div className="font-semibold">Requested Location: {approvedRegistration?.location}</div>
@@ -207,67 +207,60 @@ const AdminDashboard = () => {
 
   // *************************************************************************************
 
+const renderTestimonialsTab = () => {
+  return (
+    <div className="h-full flex justify-center text-black ">
+      <div className="">
 
+        {/* Display Pending Testimonials */}
+        <div className="flex flex-col justify-start w-full max-w-screen-lg overflow-auto">
+          <div className="text-2xl text-black font-bold mb-2">Pending Testimonials</div>
+          {testimonials.length > 0 ? testimonials
+            .filter(testimonial => !testimonial.isApproved)
+            .map((pendingTestimonial, index) => (
+              <div key={index} className="flex flex-col items-center rounded-lg shadow-md p-3 m-5 text-black bg-stone-100">
+                <p className="text-black mb-2 font-semibold">Name: {pendingTestimonial?.first_name} {pendingTestimonial?.last_name}</p>
+                <p className="text-black mb-2 font-semibold">Role: {pendingTestimonial?.role}</p>
+                <p className="text-black font-semibold">Content: {pendingTestimonial?.content}</p>
 
-  const renderTestimonialsTab = () => {
+                {/* INSERT APPROVE/REJECT TESTIMONIAL BUTTONS HERE and change is_approved*/}
 
-    return (
+              </div>
+            )) : (<div>No Pending Testimonials</div>)}
+        </div>
 
-      <div className="h-full  flex items-center justify-center">
+        {/* Display Approved Testimonials */}
+        <div className="flex flex-col justify-start w-full max-w-screen-lg">
+          <div className="text-2xl text-black font-bold mb-1">Approved Testimonials</div>
+          {testimonials.length > 0 ? testimonials
+            .filter(testimonial => testimonial.isApproved)
+            .map((approvedTestimonial, index) => (
+              <div key={index} className="flex flex-col items-center rounded-lg shadow-md p-3 m-5 bg-stone-100">
+                <p className="text-black mb-2 font-semibold">Name: {approvedTestimonial.first_name} {approvedTestimonial.last_name}</p>
+                <p className="text-black mb-2 font-semibold">Role: {approvedTestimonial.role}</p>
+                <p className="text-black font-semibold">Content: {approvedTestimonial.content}</p>
 
-          <div className="grid grid-cols-2 gap-4">
+                {/* INSERT DELETE A TESTIMONIAL BUTTON HERE */}
 
-
-            {/* Display Pending Testimonials */}
-            <div>
-              <div className="text-2xl text-black font-bold mb-1">Pending Testimonials</div>
-              {testimonials.length > 0 ? testimonials
-                .filter(testimonial => !testimonial.isApproved)
-                .map((pendingTestimonial, index) => (
-                  <div key={index} className="rounded-lg shadow-md p-1 mb-1 bg-stone-100">
-                    <p className="text-black mb-2 font-semibold">Name: {pendingTestimonial?.first_name} {pendingTestimonial?.last_name}</p>
-                    <p className="text-black mb-2 font-semibold">Role: {pendingTestimonial?.role}</p>
-                    <p className="text-black font-semibold">Content: {pendingTestimonial?.content}</p>
-
-                    {/* INSERT APPROVE/REJECT TESTIMONIAL BUTTONS HERE and change is_approved*/}
-
-
-                  </div>
-                )) : (<div>No Pending Testimonials</div>)}
-            </div>
-
-            {/* Display Approved Testimonials */}
-            <div>
-              <div className="text-2xl font-bold mb-1">Approved Testimonials</div>
-              {testimonials.length > 0 ? testimonials
-                .filter(testimonial => testimonial.isApproved)
-                .map((approvedTestimonial, index) => (
-                  <div key={index} className="rounded-lg shadow-md p-1 mb-1 bg-stone-100">
-                    <p className="text-black mb-2 font-semibold">Name: {approvedTestimonial.first_name} {approvedTestimonial.last_name}</p>
-                    <p className="text-black mb-2 font-semibold">Role: {approvedTestimonial.role}</p>
-                    <p className="text-black font-semibold">Content: {approvedTestimonial.content}</p>
-
-                    {/* INSERT DELETE A TESTIMONIAL BUTTON HERE */}
-
-                  </div>
-                )) : (<div>No Approved Testimonials</div>)}
-            </div>
-          </div>
-
+              </div>
+            )) : (<div className='text-black w-content'>No Approved Testimonials</div>)}
+        </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
+
 
 
   // *************************************************************************************
+const renderStudentsTab = () => {
+  return (
+    <div className="h-full flex items-center justify-center">
+      <div className="w-full max-w-screen-lg flex flex-col">
 
-  const renderStudentsTab = () => {
-    return (
-
-      <div className="h-full  flex items-center justify-center">
-        {/* ADD CONTENT FOR STUDENTS */}
-        {students?.length > 0 ? students
-          .map((user, index) => (
+        {/* Display Students */}
+        {students?.length > 0 ? (
+          students.map((user, index) => (
             <div key={index} className="rounded-lg shadow-md p-4 mb-4 bg-stone-100">
               <p className="text-black mb-2 font-semibold">Name: {user?.first_name} {user?.last_name}</p>
               <p className="text-black font-semibold">Level: {user?.level}</p>
@@ -276,17 +269,20 @@ const AdminDashboard = () => {
               <p className="text-black font-semibold">Email: {user?.email}</p>
               <p className="text-black font-semibold">Address: {user?.address}</p>
 
-
-              {/* INSERT our form to change a students level and/or authorization */}
+              {/* INSERT form to change a student's level and/or authorization */}
 
             </div>
-          )) : <div>No Students At This Time</div>}
+          ))
+        ) : (
+          <div className='text-black text-center flex justify-center font-2xl'>
+            <h2>No Students At This Time</h2>
+            </div>
+        )}
 
       </div>
-    );
-  };
-
-
+    </div>
+  );
+};
 
 
 
@@ -313,23 +309,23 @@ console.log("class registrations",classRegistrations)
           </TabList>
 
           {/* SERVICE ENQUIRIES TAB */}
-          <TabPanel className="h-full min-h-screen flex items-center justify-center">
+          <TabPanel className="h-screen min-h-screen ">
             {renderInquiriesTab()}
           </TabPanel>
 
           {/* CLASS REGISTRATIONS TAB */}
-          <TabPanel className="h-full flex items-center justify-center">
+          <TabPanel className="h-screen min-h-screen">
             {renderClassRegistrationsTab()}
           </TabPanel>
 
           {/* TESTIMONIALS TAB */}
-          <TabPanel className="h-full flex items-center justify-center">
+          <TabPanel className="h-screen min-h-screen">
             {renderTestimonialsTab()}
           </TabPanel>
 
 
           {/* STUDENTS TAB */}
-          <TabPanel className="h-full flex items-center justify-center">
+          <TabPanel className="h-screen min-h-screen">
             {renderStudentsTab()}
           </TabPanel>
 
