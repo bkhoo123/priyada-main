@@ -159,65 +159,122 @@ const AdminDashboard = () => {
   };
 
 
-  // *************************************************************************************
+  // *************************************************************************************       
+
 
 
   const renderClassRegistrationsTab = () => {
     return (
-      <div className="h-full flex items-center justify-center">
-
-          <div className="flex justify-center">
-
-            {/* Display Pending Dance Class Registrations */}
-            <div>
-              <div className="text-2xl font-bold mb-1">Pending Registrations</div>
-              {classRegistrations?.length > 0 ? classRegistrations
-                .filter(registration => !registration?.is_approved)
+      <div className="h-full flex items-center justify-center text-black">
+        <div className="grid grid-cols-2 gap-4">
+          {/* Display Pending Dance Class Registrations */}
+          <div>
+            <div className="text-2xl font-bold mb-4">Pending Registrations</div>
+            {classRegistrations?.length > 0 ? (
+              classRegistrations
+                .filter((registration) => !registration?.is_approved)
                 .map((pendingRegistration, index) => (
-                  <div key={index} className="rounded-xl shadow-lg p-6 mb-1 bg-stone-100 text-black">
-                    <div className="text-lg mb-1 font-semibold">Inquiry From: {pendingRegistration.inquiry?.user?.first_name} {pendingRegistration?.user?.last_name}</div>
-                    <div className="font-semibold">Level: {pendingRegistration?.dance_class_id === 1 ? "Beginner" : pendingRegistration?.dance_class_id === 2 ? "Intermediate" : "Advanced/Senior"}</div>
+                  <div
+                    key={index}
+                    className="rounded-lg shadow-md p-4 mb-4 bg-gray-100 text-black"
+                  >
+                    <div className="text-lg mb-2 font-semibold">
+                      Inquiry From: {pendingRegistration.inquiry?.user?.first_name}{" "}
+                      {pendingRegistration?.user?.last_name}
+                    </div>
+                    <div className="font-semibold">
+                      Level:{" "}
+                      {pendingRegistration?.dance_class_id === 1
+                        ? "Beginner"
+                        : pendingRegistration?.dance_class_id === 2
+                        ? "Intermediate"
+                        : "Advanced/Senior"}
+                    </div>
                     <div className="font-semibold">Age: {pendingRegistration?.age}</div>
-                    <div className="font-semibold">Requested Location: {pendingRegistration?.location}</div>
+                    <div className="font-semibold">
+                      Requested Location: {pendingRegistration?.location}
+                    </div>
                     <div className="font-semibold">Message: {pendingRegistration?.notes}</div>
                     <div className="mt-2 font-semibold">Contact Info:</div>
                     <div className="font-semibold">Contact Email: {pendingRegistration?.user?.email}</div>
-                    <div className="font-semibold">Contact Phone Number: {pendingRegistration?.user?.phone_number}</div>
+                    <div className="font-semibold">
+                      Contact Phone Number: {pendingRegistration?.user?.phone_number}
+                    </div>
                     <div className="font-semibold">Contact Address: {pendingRegistration?.user?.address}</div>
-                    {/* INSERT APPROVE/REJECT REGISTRATION BUTTONS HERE */}
-                    <button className="bg-green-500 text-white px-3 py-1 rounded-full" onClick={() => handleApproveRegistration(pendingRegistration)}>Approve</button>
-                    <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleRejectRegistration(pendingRegistration)}>Reject</button>
+                    {/* APPROVE/REJECT REGISTRATION BUTTONS */}
+                    <div className="mt-4 space-x-4">
+                      <button
+                        className="bg-green-500 text-white px-3 py-1 rounded-full"
+                        onClick={() => handleApproveRegistration(pendingRegistration)}
+                      >
+                        Approve
+                      </button>
+                      <button
+                        className="bg-red-500 text-white px-3 py-1 rounded-full"
+                        onClick={() => handleRejectRegistration(pendingRegistration)}
+                      >
+                        Reject
+                      </button>
+                    </div>
                   </div>
-                )) : <div>No Pending Class Registrations</div>}
-            </div>
-
-            {/* Display Approved Dance Class Registrations */}
-            <div>
-              <div className="text-2xl text-black font-bold mb-2">Approved Registrations</div>
-              {classRegistrations?.length > 0 ? classRegistrations
-                .filter(registration => registration?.is_approved)
+                ))
+            ) : (
+              <div>No Pending Class Registrations</div>
+            )}
+          </div>
+  
+          {/* Display Approved Dance Class Registrations */}
+          <div>
+            <div className="text-2xl text-black font-bold mb-2">Approved Registrations</div>
+            {classRegistrations?.length > 0 ? (
+              classRegistrations
+                .filter((registration) => registration?.is_approved)
                 .map((approvedRegistration, index) => (
-                  <div key={index} className="rounded-xl shadow-lg p-6 mb-2 bg-stone-100 text-black">
-                    <div className="text-lg mb-2 font-semibold">Inquiry From: {approvedRegistration?.inquiry?.user?.first_name} {approvedRegistration?.user?.last_name}</div>
-                    <div className="font-semibold">Level: {approvedRegistration?.dance_class_id === 1 ? "Beginner" : approvedRegistration?.dance_class_id === 2 ? "Intermediate" : "Advanced/Senior"}</div>
+                  <div
+                    key={index}
+                    className="rounded-lg shadow-md p-4 mb-4 bg-gray-100 text-black"
+                  >
+                    <div className="text-lg mb-2 font-semibold">
+                      Inquiry From: {approvedRegistration?.inquiry?.user?.first_name}{" "}
+                      {approvedRegistration?.user?.last_name}
+                    </div>
+                    <div className="font-semibold">
+                      Level:{" "}
+                      {approvedRegistration?.dance_class_id === 1
+                        ? "Beginner"
+                        : approvedRegistration?.dance_class_id === 2
+                        ? "Intermediate"
+                        : "Advanced/Senior"}
+                    </div>
                     <div className="font-semibold">Age: {approvedRegistration?.age}</div>
-                    <div className="font-semibold">Requested Location: {approvedRegistration?.location}</div>
+                    <div className="font-semibold">
+                      Requested Location: {approvedRegistration?.location}
+                    </div>
                     <div className="font-semibold">Message: {approvedRegistration?.notes}</div>
                     <div className="mt-4 font-semibold">Contact Info:</div>
                     <div className="font-semibold">Contact Email: {approvedRegistration?.user?.email}</div>
-                    <div className="font-semibold">Contact Phone Number: {approvedRegistration?.user?.phone_number}</div>
+                    <div className="font-semibold">
+                      Contact Phone Number: {approvedRegistration?.user?.phone_number}
+                    </div>
                     <div className="font-semibold">Contact Address: {approvedRegistration?.user?.address}</div>
-                    {/* INSERT DELETE REGISTRATION BUTTON HERE */}
-                    <button className="bg-red-500 text-white px-3 py-1 rounded-full" onClick={() => handleDeleteRegistration(approvedRegistration)}>Delete</button>
-
+                    {/* DELETE REGISTRATION BUTTON */}
+                    <button
+                      className="bg-red-500 text-white px-3 py-1 rounded-full"
+                      onClick={() => handleDeleteRegistration(approvedRegistration)}
+                    >
+                      Delete
+                    </button>
                   </div>
-                )) : <div>No Class Registrations At This Time</div>}
-            </div>
+                ))
+            ) : (
+              <div>No Class Registrations At This Time</div>
+            )}
           </div>
-
+        </div>
       </div>
     );
   };
+  
 
 
   // *************************************************************************************
