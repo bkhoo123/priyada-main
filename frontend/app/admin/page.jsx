@@ -98,15 +98,15 @@ const AdminDashboard = () => {
 
 
             {/* Display Pending Inquiries */}
-            <div className="text-2xl font-bold mb-4">Pending Inquiries</div>
-            <div className='flex flex-wrap justify-center'>
+            <div className="text-2xl font-sans font-bold mb-4">Pending Inquiries</div>
+            <div className='font-sans flex flex-wrap justify-center'>
 
               {inquiries?.length > 0 ? inquiries
                 .filter(inquiry => !inquiry?.is_approved)
                 .map((pendingInquiry, index) => (
-                  <div key={index} className="text-black bg-stone-50 rounded-lg shadow p-4 m-4">
-                    <div className="grid gap-1">
-                      <div className="font-bold">Inquiry From: {pendingInquiry?.user?.first_name} {pendingInquiry?.user?.last_name}</div>
+                  <div key={index} className="font-sans text-black bg-stone-50 rounded-lg shadow p-4 m-4">
+                    <div className="font-sans grid gap-1">
+                      <div className="font-sans font-bold">Inquiry From: {pendingInquiry?.user?.first_name} {pendingInquiry?.user?.last_name}</div>
                       <div>Type: {pendingInquiry?.service_id === 1 ? "Makeup" : pendingInquiry?.service_id === 2 ? "Emcee" : "Nattuvangam"}</div>
                       <div>Message: {pendingInquiry?.notes}</div>
                       <div>Requested Date: {pendingInquiry?.date.toLocaleString()}</div>
@@ -122,14 +122,14 @@ const AdminDashboard = () => {
             </div>
 
             {/* Display Approved Inquiries */}
-            <div className='flex flex-wrap justify-center"'>
-              <div className="text-2xl font-bold mb-4">Approved Inquiries</div>
+            <div className='flex font-sans flex-wrap justify-center"'>
+              <div className="text-2xl font-bold font-sans  mb-4">Approved Inquiries</div>
               {inquiries?.length > 0 ? inquiries
                 .filter(inquiry => inquiry?.is_approved)
                 .map((approvedInquiry, index) => (
-                  <div key={index} className="text-black bg-stone-50 rounded-lg shadow p-4 m-4">
-                    <div className="grid gap-1">
-                      <div className="font-bold">Inquiry From: {approvedInquiry?.user?.first_name} {approvedInquiry?.user?.last_name}</div>
+                  <div key={index} className="font-sans text-black bg-stone-50 rounded-lg shadow p-4 m-4">
+                    <div className="font-sans grid gap-1">
+                      <div className="font-sans font-bold">Inquiry From: {approvedInquiry?.user?.first_name} {approvedInquiry?.user?.last_name}</div>
                       <div>Type: {approvedInquiry?.service_id === 1 ? "Makeup" : approvedInquiry?.service_id === 2 ? "Emcee" : "Nattuvangam"}</div>
                       <div>Message: {approvedInquiry.notes}</div>
                       <div>Requested Date: {approvedInquiry?.date.toLocaleString()}</div>
