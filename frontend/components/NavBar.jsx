@@ -97,17 +97,15 @@ const NavBar = () => {
             </span>
 
             {toggleProfile && (
-              <div 
+              <div
                 onMouseEnter={() => setToggleProfile(true)}
                 onMouseLeave={() => setToggleProfile(false)}
                 className="absolute z-10 top-16 w-[180px] rounded-md shadow-lg delay-200"
                 >
                 <div className="px-6 py-4 rounded-md bg-gray-800 flex flex-col gap-2 justify-start items-start">
-                  {sessionUser.authorization === "admin" ? (
-                    <Link className="text-white hover:text-emerald-400" href="/admin">Admin Portal</Link>
-                  ) : (
-                    <Link href="/your-account">Account</Link>
-                  )}
+
+
+                     <Link href="/your-account">Account</Link>
                   <button
                     onClick={handleLogout}
                     className="text-white hover:text-emerald-400"
