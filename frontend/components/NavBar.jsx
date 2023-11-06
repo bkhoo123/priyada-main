@@ -28,8 +28,6 @@ const NavBar = () => {
     alert("You have successfully logged out!");
   }
 
-  console.log(sessionUser)
-
 
   return (
 
@@ -95,7 +93,7 @@ const NavBar = () => {
               <circle cx="12" cy="7" r="4" />
             </svg>
             <span className="text-l">
-              {sessionUser.first_name} {sessionUser.last_name}
+              {sessionUser.firstName} {sessionUser.lastName}
             </span>
 
             {toggleProfile && (

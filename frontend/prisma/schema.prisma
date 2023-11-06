@@ -1,0 +1,123 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  seed = "node prisma/seeds/seeds.js"  // or "" if using JavaScript
+}
+
+
+// datasource db {
+//   provider = "postgresql"
+//   url      = env("DATABASE_URL")
+// }
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+
+
+
+model User {
+  id                        Int                          @id @default(autoincrement())
+  username                  String                       @unique
+  email                     String                       @unique
+  hashedPassword            String
+  authorization             String
+  level                     String?
+  firstName                 String
+  lastName                  String
+  // birthdate                DateTime
+  address                   String
+  phoneNumber               String
+  freeUser                  Boolean                      @default(true)
+  paymentInfo               String?
+  ServiceAppointments       ServiceAppointment[]
+  DanceClassRegistrations   DanceClassRegistration[]
+  Media                     Media[]
+  Testimonials              Testimonial[]
+}
+
+model Testimonial {
+  id         Int      @id @default(autoincrement())
+  userId     Int?     @map("user_id")
+  firstName  String   @map("first_name")
+  lastName   String   @map("last_name")
+  content    String
+  role       String?
+  isApproved Boolean? @default(true) @map("is_approved")
+  user       User?    @relation(fields: [userId], references: [id])
+
+  // @@map("testimonials")
+}
+// @@map directive at the end of the model is used to specify the name of the table in the database, which allows you to follow the same naming convention as your SQLAlchemy model.
+
+model Media {
+  id             Int       @id @default(autoincrement())
+  userId         Int       
+  videoUrl       String?   @map("video_url")
+  photoUrl       String?   @map("photo_url")
+  authorization  String    @default("Public")
+  description    String?
+  type           String?
+  createdAt      DateTime  @default(now()) @map("created_at")
+  user           User      @relation(fields: [userId], references: [id])
+
+  // @@map("media")
+}
+
+model DanceClass {
+  id          Int       @id @default(autoincrement())
+  classOne    String    @map("class_one")
+  classTwo    String    @map("class_two")
+  level       String
+  description String
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  // media       Media[]
+
+  // @@map("dance_classes")
+}
+
+
+model DanceClassRegistration {
+  id             Int       @id @default(autoincrement())
+  userId         Int       @map("user_id")
+  danceClassId   Int       @map("dance_class_id")
+  age            Int
+  location       String
+  notes          String
+  isApproved     Boolean   @map("is_approved")
+  attendance     Boolean   @default(false)
+  createdAt      DateTime  @default(now()) @map("created_at")
+  user           User      @relation(fields: [userId], references: [id])
+
+  // @@map("dance_class_registration")
+}
+
+model ServiceAppointment {
+  id          Int       @id @default(autoincrement())
+  userId      Int       @map("user_id")
+  serviceId   Int       @map("service_id")
+  date        DateTime
+  location    String
+  notes       String
+  isApproved  Boolean   @default(false) @map("is_approved")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  user        User      @relation(fields: [userId], references: [id])
+
+  // @@map("service_appointments")
+}
+
+model Service {
+  id          Int       @id @default(autoincrement())
+  category    String
+  description String
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  // user        User[]    // Uncomment and adjust this line if you define a relationship between Service and User
+
+  // @@map("services")
+}

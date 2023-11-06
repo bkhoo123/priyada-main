@@ -18,17 +18,26 @@ const SignUp = () => {
     email: "",
     password: "",
     authorization: "student",
-    first_name: "",
-    last_name: "",
+    firstName: "",
+    lastName: "",
     address: "",
-    phone_number: "",
+    phoneNumber: "",
   })
 
   const signUpSubmit = async (e) => {
     e.preventDefault()
 
     try {
-      const response = await axios.post("http://127.0.0.1:5000/api/auth/signup", form)
+      const response = await axios.post("/api/auth/signup", {
+        username: JSON.stringify(form.username),
+        email: JSON.stringify(form.email),
+        password: JSON.stringify(form.password),
+        authorization: JSON.stringify(form.authorization),
+        firstName: JSON.stringify(form.firstName),
+        lastName: JSON.stringify(form.lastName),
+        address: JSON.stringify(form.address),
+        phoneNumber: JSON.stringify(form.phoneNumber),
+      }, { withCredentials: true })
 
     
       if (response) {
@@ -87,16 +96,16 @@ const SignUp = () => {
             
             <input 
               type="text" 
-              value={form.first_name}
-              onChange={(e) => setForm({...form, first_name: e.target.value})}
+              value={form.firstName}
+              onChange={(e) => setForm({...form, firstName: e.target.value})}
               placeholder="First Name"
               className="border-2 p-2 w-full rounded-md border-gray-300"  
             />
 
             <input 
               type="text" 
-              value={form.last_name}
-              onChange={(e) => setForm({...form, last_name: e.target.value})}
+              value={form.lastName}
+              onChange={(e) => setForm({...form, lastName: e.target.value})}
               placeholder="Last Name"
               className="border-2 p-2 w-full rounded-md border-gray-300"  
             />
@@ -119,8 +128,8 @@ const SignUp = () => {
 
             <input 
               type="text" 
-              value={form.phone_number}
-              onChange={(e) => setForm({...form, phone_number: e.target.value})}
+              value={form.phoneNumber}
+              onChange={(e) => setForm({...form, phoneNumber: e.target.value})}
               placeholder="Phone Number"
               className="border-2 p-2 w-full rounded-md border-gray-300"  
             />

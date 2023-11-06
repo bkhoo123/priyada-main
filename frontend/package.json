@@ -6,18 +6,23 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "node prisma/seeds/seeds.js",
+    "undo": "node prisma/seeds/undoSeeds.js"
   },
   "dependencies": {
+    "@prisma/client": "^5.5.2",
     "autofit.js": "^3.0.4",
     "autofit.js-react": "^0.0.2",
     "axios": "^1.6.0",
+    "bcrypt": "^5.1.1",
     "dayjs": "^1.11.10",
     "encoding": "^0.1.13",
     "framer-motion": "^10.16.4",
     "next": "13.5.5",
     "next-router-mock": "^0.9.10",
     "openai": "^4.12.4",
+    "prisma": "^5.5.2",
     "react": "^18",
     "react-date-picker": "^10.5.2",
     "react-dom": "^18",
@@ -28,6 +33,7 @@
     "react-spinners": "^0.13.8",
     "react-tabs": "^6.0.2",
     "react-tailwindcss-datepicker": "^1.6.6",
+    "sqlite3": "^5.1.6",
     "tailwind-datepicker-react": "^1.4.3",
     "timepicker-ui": "^2.6.1",
     "tw-elements": "^1.0.0"

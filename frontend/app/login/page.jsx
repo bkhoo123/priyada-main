@@ -17,19 +17,24 @@ const Login = () => {
   const handleDemo = async (e) => {
     e.preventDefault();
 
-    const demoData = {
-      email: "demouser@gmail.com",
-      password: "demopassword"
-    };
+    // const demoData = {
+    //   email: JSON.stringify("demouser@gmail.com"),
+    //   password: JSON.stringify("demopassword")
+    // };
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/auth/login', demoData, { withCredentials: true });
+      const response = await axios.post('/api/auth/login', {
+        email: JSON.stringify("anjalis88@gmail.com"),
+        password: JSON.stringify("132qq800")
+      }, { withCredentials: true });
+      
+      
 
       if (response) {
         setAuthenticated(true)
         localStorage.setItem("user", JSON.stringify(response.data));
         setSessionUser(response.data);
-        alert("Login Successful");
+        console.log(response.data, "data response");
         router.push("/");
 
       }
@@ -43,7 +48,10 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://127.0.0.1:5000/api/auth/login', form, { withCredentials: true });
+      const response = await axios.post('/api/auth/login', {
+        email: JSON.stringify(form.email),
+        password: JSON.stringify(form.password)
+      }, { withCredentials: true });
 
       if (response) {
         setAuthenticated(true)
