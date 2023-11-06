@@ -92,18 +92,19 @@ const AdminDashboard = () => {
 
   const renderInquiriesTab = () => {
     return (
-      <div className="h-full flex items-center justify-center text-black">
+      <div className="">
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="h-full flex flex-col">
 
 
             {/* Display Pending Inquiries */}
-            <div>
-              <div className="text-2xl font-bold mb-4">Pending Inquiries</div>
+            <div className="text-2xl font-bold mb-4">Pending Inquiries</div>
+            <div className='flex flex-wrap justify-center'>
+
               {inquiries?.length > 0 ? inquiries
                 .filter(inquiry => !inquiry?.is_approved)
                 .map((pendingInquiry, index) => (
-                  <div key={index} className="text-black bg-stone-50 rounded-lg shadow p-4 mb-4">
+                  <div key={index} className="text-black bg-stone-50 rounded-lg shadow p-4 m-4">
                     <div className="grid gap-1">
                       <div className="font-bold">Inquiry From: {pendingInquiry?.user?.first_name} {pendingInquiry?.user?.last_name}</div>
                       <div>Type: {pendingInquiry?.service_id === 1 ? "Makeup" : pendingInquiry?.service_id === 2 ? "Emcee" : "Nattuvangam"}</div>
@@ -121,12 +122,12 @@ const AdminDashboard = () => {
             </div>
 
             {/* Display Approved Inquiries */}
-            <div>
+            <div className='flex flex-wrap justify-center"'>
               <div className="text-2xl font-bold mb-4">Approved Inquiries</div>
               {inquiries?.length > 0 ? inquiries
                 .filter(inquiry => inquiry?.is_approved)
                 .map((approvedInquiry, index) => (
-                  <div key={index} className="text-black bg-stone-50 rounded-lg shadow p-4 mb-4">
+                  <div key={index} className="text-black bg-stone-50 rounded-lg shadow p-4 m-4">
                     <div className="grid gap-1">
                       <div className="font-bold">Inquiry From: {approvedInquiry?.user?.first_name} {approvedInquiry?.user?.last_name}</div>
                       <div>Type: {approvedInquiry?.service_id === 1 ? "Makeup" : approvedInquiry?.service_id === 2 ? "Emcee" : "Nattuvangam"}</div>
@@ -153,17 +154,17 @@ const AdminDashboard = () => {
 
   const renderClassRegistrationsTab = () => {
     return (
-      <div className="h-full flex items-center justify-center">
+      <div className="">
 
-          <div className="flex justify-center">
+          <div className="flex flex-col justify-center">
 
             {/* Display Pending Dance Class Registrations */}
-            <div>
+            <div className='flex flex-wrap'>
               <div className="text-2xl font-bold mb-1">Pending Registrations</div>
               {classRegistrations?.length > 0 ? classRegistrations
                 .filter(registration => !registration?.is_approved)
                 .map((pendingRegistration, index) => (
-                  <div key={index} className="rounded-xl shadow-lg p-6 mb-1 bg-stone-100 text-black">
+                  <div key={index} className="rounded-xl shadow-lg p-6 m-4 bg-stone-100 text-black">
                     <div className="text-lg mb-1 font-semibold">Inquiry From: {pendingRegistration.inquiry?.user?.first_name} {pendingRegistration?.user?.last_name}</div>
                     <div className="font-semibold">Level: {pendingRegistration?.dance_class_id === 1 ? "Beginner" : pendingRegistration?.dance_class_id === 2 ? "Intermediate" : "Advanced/Senior"}</div>
                     <div className="font-semibold">Age: {pendingRegistration?.age}</div>
@@ -206,50 +207,50 @@ const AdminDashboard = () => {
 
 
   // *************************************************************************************
-
 const renderTestimonialsTab = () => {
+  const pendingTestimonials = testimonials.filter(testimonial => !testimonial.isApproved);
+  const approvedTestimonials = testimonials.filter(testimonial => testimonial.isApproved);
+
   return (
-    <div className="h-full flex justify-center text-black ">
-      <div className="">
-
-        {/* Display Pending Testimonials */}
-        <div className="flex flex-col justify-start w-full max-w-screen-lg overflow-auto">
-          <div className="text-2xl text-black font-bold mb-2">Pending Testimonials</div>
-          {testimonials.length > 0 ? testimonials
-            .filter(testimonial => !testimonial.isApproved)
-            .map((pendingTestimonial, index) => (
-              <div key={index} className="flex flex-col items-center rounded-lg shadow-md p-3 m-5 text-black bg-stone-100">
-                <p className="text-black mb-2 font-semibold">Name: {pendingTestimonial?.first_name} {pendingTestimonial?.last_name}</p>
-                <p className="text-black mb-2 font-semibold">Role: {pendingTestimonial?.role}</p>
-                <p className="text-black font-semibold">Content: {pendingTestimonial?.content}</p>
-
-                {/* INSERT APPROVE/REJECT TESTIMONIAL BUTTONS HERE and change is_approved*/}
-
+    <div className='flex flex-wrap w-full '>
+      {/* Display Pending Testimonials */}
+      <div className="flex w-full h-auto">
+        <div className="text-white font-sans text-xl font-bold mb-4 h-auto">New Testimonials</div>
+        <div className="flex flex-wrap  w-full">
+          {pendingTestimonials.map((pendingTestimonial, index) => (
+            <div key={index} className="w-1/3 p-4">
+              {/* Display pending testimonial details */}
+              <div className="font-sans bg-white text-black rounded-lg shadow p-6 m-5">
+                <p className="text-black font-semibold">Name: {pendingTestimonial.first_name} {pendingTestimonial.last_name}</p>
+                <p className="text-black font-semibold">Role: {pendingTestimonial.role}</p>
+                <p className="text-black font-semibold">Content: {pendingTestimonial.content}</p>
+                {/* INSERT APPROVE/REJECT TESTIMONIAL BUTTONS HERE and change is_approved */}
               </div>
-            )) : (<div>No Pending Testimonials</div>)}
+            </div>
+          ))}
         </div>
+      </div>
 
-        {/* Display Approved Testimonials */}
-        <div className="flex flex-col justify-start w-full max-w-screen-lg">
-          <div className="text-2xl text-black font-bold mb-1">Approved Testimonials</div>
-          {testimonials.length > 0 ? testimonials
-            .filter(testimonial => testimonial.isApproved)
-            .map((approvedTestimonial, index) => (
-              <div key={index} className="flex flex-col items-center rounded-lg shadow-md p-3 m-5 bg-stone-100">
-                <p className="text-black mb-2 font-semibold">Name: {approvedTestimonial.first_name} {approvedTestimonial.last_name}</p>
-                <p className="text-black mb-2 font-semibold">Role: {approvedTestimonial.role}</p>
+      {/* Display Approved Testimonials */}
+      <div className="flex w-full h-auto">
+        <div className="font-sans text-white text-xl font-bold mb-4">Approved Testimonials</div>
+        <div className="flex flex-wrap  w-full">
+          {approvedTestimonials.map((approvedTestimonial, index) => (
+            <div key={index} className="w-1/3 p-4">
+              {/* Display approved testimonial details */}
+              <div className="font-sans bg-white text-black rounded-lg shadow p-6 m-5">
+                <p className="text-black font-semibold">Name: {approvedTestimonial.first_name} {approvedTestimonial.last_name}</p>
+                <p className="text-black font-semibold">Role: {approvedTestimonial.role}</p>
                 <p className="text-black font-semibold">Content: {approvedTestimonial.content}</p>
-
                 {/* INSERT DELETE A TESTIMONIAL BUTTON HERE */}
-
               </div>
-            )) : (<div className='text-black w-content'>No Approved Testimonials</div>)}
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
-
 
 
   // *************************************************************************************
@@ -293,42 +294,40 @@ console.log("class registrations",classRegistrations)
 
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black text-white">
       <NavBar />
-      <div className="font-sans container mx-auto p-4 bg-black bg-opacity-50 text-lightcream rounded-lg shadow-lg mt-8">
+      <div className="container font-sans mx-auto p-4 bg-black bg-opacity-50 text-white rounded-lg shadow-lg mt-8">
         <h1 className="text-3xl font-sans font-semibold mb-4 py-6 text-center">
           Admin Dashboard
         </h1>
 
-        <Tabs className="font-sans rounded-md bg-stone-200">
-          <TabList className="flex justify-evenly border-stone-900 mb-4 gap-4 rounded-b-2xl overflow-hidden">
-            <Tab className="p-4 text-lg cursor-pointer bg-stone-900 focus-none outline-none text-lightcream rounded-b-md hover:bg-stone-300 ">Inquiries</Tab>
-            <Tab className="p-4 text-lg cursor-pointer bg-stone-900 focus-none outline-none text-lightcream rounded-b-md hover:bg-stone-300">Class Registrations</Tab>
-            <Tab className="p-4 text-lg cursor-pointer bg-stone-900 focus-none outline-none text-lightcream rounded-b-md hover:bg-stone-300">Testimonials</Tab>
-            <Tab className="p-4 text-lg cursor-pointer bg-stone-900 focus-none outline-none text-lightcream selected-rounded-md rounded-b-md hover:bg-stone-300">Students</Tab>
+        <Tabs className="bg-black">
+          <TabList className="flex font-sans justify-evenly border-b-2 border-white mb-4 rounded-t-xl">
+            <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Inquiries</Tab>
+            <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Class Registrations</Tab>
+            <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Testimonials</Tab>
+            <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Students</Tab>
           </TabList>
 
           {/* SERVICE ENQUIRIES TAB */}
-          <TabPanel className="h-screen min-h-screen ">
+          <TabPanel className="h-screen flex flex-col justify-start items-start">
             {renderInquiriesTab()}
           </TabPanel>
 
           {/* CLASS REGISTRATIONS TAB */}
-          <TabPanel className="h-screen min-h-screen">
+          <TabPanel className="h-screen flex flex-col items-start justify-start">
             {renderClassRegistrationsTab()}
           </TabPanel>
 
           {/* TESTIMONIALS TAB */}
-          <TabPanel className="h-screen min-h-screen">
+          <TabPanel className="h-screen flex flex-col items-start justify-start">
             {renderTestimonialsTab()}
           </TabPanel>
 
-
           {/* STUDENTS TAB */}
-          <TabPanel className="h-screen min-h-screen">
+          <TabPanel className="h-screen flex flex-col items-start justify-start">
             {renderStudentsTab()}
           </TabPanel>
-
         </Tabs>
       </div>
       <Footer />
