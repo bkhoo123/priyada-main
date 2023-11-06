@@ -356,7 +356,7 @@ console.log("class registrations",classRegistrations)
         <Tabs className="bg-black">
           <TabList className="flex font-sans justify-evenly border-b-2 border-white mb-4 rounded-t-xl">
             <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Inquiries</Tab>
-            <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Class Registrations</Tab>
+             <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Class Registrations</Tab>
             <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Testimonials</Tab>
             <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Students</Tab>
           </TabList>
@@ -367,20 +367,20 @@ console.log("class registrations",classRegistrations)
           </TabPanel>
 
           {/* CLASS REGISTRATIONS TAB */}
-          <TabPanel className="h-screen flex flex-col items-start justify-start">
+          {/* <TabPanel className="h-screen flex flex-col items-start justify-start">
             {renderClassRegistrationsTab()}
-          </TabPanel>
+          </TabPanel> */}
 
           {/* TESTIMONIALS TAB */}
-          <TabPanel className="h-screen flex flex-col items-start justify-start">
+          {/* <TabPanel className="h-screen flex flex-col items-start justify-start">
             {renderTestimonialsTab()}
-          </TabPanel>
+          </TabPanel> */}
 
           {/* STUDENTS TAB */}
           <TabPanel className="h-screen flex flex-col items-start justify-start">
-            {/* {renderStudentsTab()} */}
             {renderTestimonialsTab()}
           </TabPanel>
+
         </Tabs>
       </div>
       <Footer />
