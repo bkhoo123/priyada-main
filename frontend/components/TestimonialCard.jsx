@@ -14,7 +14,7 @@ const TestimonialCard = ({ testimony, onTestimonialDelete }) => {
       setIsDeleting(true);
 
       // Make a DELETE request to your backend API to delete the testimonial
-      await axios.delete(`http://127.0.0.1:5000/api/testimonials/${testimony.id}`);
+      await axios.delete(`http://127.0.0.1:5000/api/testimonials/${testimony.id}/`);
 
       // Call the onTestimonialDelete callback to remove the testimonial from the UI
       onTestimonialDelete(testimony.id);
@@ -33,20 +33,18 @@ const TestimonialCard = ({ testimony, onTestimonialDelete }) => {
         <div className="text-rose-200 text-xl text-center">{testimony.lastName}</div>
         <div className="text-lightcream text-center text-m italic">{testimony.role}</div>
 
-     {/*  add conditional rendering */}
-     {sessionUser && sessionUser.id === testimony.user_id || sessionUser && sessionUser.authorization === "admin"?(<>
-      <div className="text-red-500 text-center text-m italic">
+{/* REMOVE A TESTIMONY */}
+
+      {/* <div className="text-red-500 text-center text-m italic">
             <button
-              className="bg-teal-900 border-lightcream font-bold tracking-wider hover:bg-stone-500 text-lightcream rounded-md p-3 m-3 transition duration-700"
+              className="bg-inherit italic font-bold tracking-wider text-red-700 rounded-md m-5 transition duration-700"
               type="button"
               onClick={handleDelete}
               disabled={isDeleting}
             >
-              {isDeleting ? 'Deleting...' : 'Delete'}
+              {isDeleting ? '(Removing This Testimony...)' : '(Remove This Testimony)'}
             </button>
-          </div>
-
-     </>):null}
+          </div> */}
 
       </div>
     </div>

@@ -19,7 +19,7 @@ const YourAccount = () => {
 
 
   const renderAccountInfo = () => (
-    <div className="p-6 m-3 border rounded-md bg-white shadow-2xl">
+    <div className="p-6 m-3 border rounded-md bg-lightcream shadow-2xl w-75">
       <h2 className="text-2xl font-semibold mb-4">Account Information</h2>
       <div className="mb-6">
         <div className="font-semibold text-lg mb-2">Username</div>
@@ -45,7 +45,7 @@ const YourAccount = () => {
   );
 
   const renderBillingInfo = () => (
-    <div className="p-6 m-3 border rounded-md bg-white shadow-2xl">
+    <div className="p-6 m-3 border rounded-md bg-lightcream shadow-2xl w-75">
       <h2 className="text-2xl font-semibold  mb-4">Billing Information</h2>
       <div className="mb-6">
         <div className="font-semibold text-lg mb-2">Username</div>
@@ -71,10 +71,10 @@ const YourAccount = () => {
   );
 
   const renderClassInfo = () => (
-    <div className="p-6 m-3 border rounded-md bg-white shadow-2xl">
+    <div className="p-6 m-3 border rounded-md bg-lightcream shadow-2xl w-75 m-5 mb-5">
       <h2 className="text-2xl font-semibold mb-4">Registered Classes & Class Schedules</h2>
 
-      <div className="text-lightcream flex flex-row mb-4">
+      <div className="text-lightcream flex flex-row flex-wrap  ">
         {renderDanceCards()}
       </div>
       <div>
@@ -179,7 +179,8 @@ const YourAccount = () => {
       <div className='text-black mx-4 sm:mx-8 lg:mx-12 xl:mx-20'>
         {renderAccountInfo()}
         {renderBillingInfo()}
-        {renderClassInfo()}
+        <div className='flex flex-row justify-center flex-wrap'>  {renderClassInfo()}</div>
+
       </div>
 
       <Footer />
