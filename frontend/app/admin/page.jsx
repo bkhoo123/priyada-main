@@ -207,50 +207,6 @@ const AdminDashboard = () => {
 
 
   // *************************************************************************************
-// const renderTestimonialsTab = () => {
-//   const pendingTestimonials = testimonials.filter(testimonial => !testimonial.isApproved);
-//   const approvedTestimonials = testimonials.filter(testimonial => testimonial.isApproved);
-
-//   return (
-//     <div className='flex'>
-//       {/* Display Pending Testimonials */}
-//       <div className="h-50 flex flex-col ">
-//         <div className="text-white font-sans text-xl font-bold mb-4">New Testimonials</div>
-//         <div className="font-sans flex flex-wrap justify-center">
-//           {pendingTestimonials.map((pendingTestimonial, index) => (
-//             <div key={index} className="w-full p-4">
-//               {/* Display pending testimonial details */}
-//               <div className="font-sans bg-white text-black rounded-lg shadow p-6 m-5">
-//                 <p className="text-black font-semibold">Name: {pendingTestimonial.first_name} {pendingTestimonial.last_name}</p>
-//                 <p className="text-black font-semibold">Role: {pendingTestimonial.role}</p>
-//                 <p className="text-black font-semibold">Content: {pendingTestimonial.content}</p>
-//                 {/* INSERT APPROVE/REJECT TESTIMONIAL BUTTONS HERE and change is_approved */}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       {/* Display Approved Testimonials */}
-//       <div className="w-full">
-//         <div className="font-sans text-white text-xl font-bold mb-4">Approved Testimonials</div>
-//         <div className="w-full">
-//           {approvedTestimonials.map((approvedTestimonial, index) => (
-//             <div key={index} className="w-full p-4">
-//               {/* Display approved testimonial details */}
-//               <div className="font-sans bg-white text-black rounded-lg shadow p-6 m-5">
-//                 <p className="text-black font-semibold">Name: {approvedTestimonial.first_name} {approvedTestimonial.last_name}</p>
-//                 <p className="text-black font-semibold">Role: {approvedTestimonial.role}</p>
-//                 <p className="text-black font-semibold">Content: {approvedTestimonial.content}</p>
-//                 {/* INSERT DELETE A TESTIMONIAL BUTTON HERE */}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
 
 const PendingTestimonials = ({ pendingTestimonials }) => {
   return (
@@ -356,8 +312,8 @@ console.log("class registrations",classRegistrations)
         <Tabs className="bg-black">
           <TabList className="flex font-sans justify-evenly border-b-2 border-white mb-4 rounded-t-xl">
             <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Inquiries</Tab>
-             <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Class Registrations</Tab>
-            <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Testimonials</Tab>
+             {/* <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Class Registrations</Tab>
+            <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Testimonials</Tab> */}
             <Tab className="p-4 text-lg cursor-pointer hover:bg-gray-600">Students</Tab>
           </TabList>
 
