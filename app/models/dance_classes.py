@@ -32,5 +32,4 @@ class Dance_Class(db.Model):
             'level':self.level,
             'description': self.description,
             'created_at': self.created_at,
-
         }

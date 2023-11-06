@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "node prisma/seeds/seeds.js",
-    "undo": "node prisma/seeds/undoSeeds.js"
+    "undo": "node prisma/seeds/undoSeeds.js",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.5.2",

@@ -27,7 +27,6 @@ class User(db.Model, UserMixin):
 
     media = db.relationship("Media", back_populates='user')
     testimonials = db.relationship("Testimonial", back_populates="user")
-    billings = db.relationship("Billing", back_populates='user', cascade="all, delete-orphan")
 
     @property
     def password(self):
