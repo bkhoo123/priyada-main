@@ -35,7 +35,6 @@ const elsie = Elsie({
 const didactGothic = Didact_Gothic({
   subsets: ['latin'],
   weight: ['400']
-
 })
 
 

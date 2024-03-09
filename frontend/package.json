@@ -12,7 +12,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.5.2",
+    "@prisma/client": "^5.10.2",
     "autofit.js": "^3.0.4",
     "autofit.js-react": "^0.0.2",
     "axios": "^1.6.0",
@@ -23,7 +23,6 @@
     "next": "13.5.5",
     "next-router-mock": "^0.9.10",
     "openai": "^4.12.4",
-    "prisma": "^5.5.2",
     "react": "^18",
     "react-date-picker": "^10.5.2",
     "react-dom": "^18",
@@ -42,6 +41,7 @@
   "devDependencies": {
     "autoprefixer": "^10",
     "postcss": "^8",
+    "prisma": "^5.10.2",
     "tailwindcss": "^3"
   }
 }

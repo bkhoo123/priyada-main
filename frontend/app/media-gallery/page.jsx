@@ -18,11 +18,16 @@ const MediaGallery = () => {
 
     useEffect(() => {
         const fetchMedia = async () => {
-            const mediaData = await axios.get("http://127.0.0.1:5000/api/media")
-            setMedia(mediaData.data)
+            const mediaData = await axios.get("/api/media-gallery")
+            setMedia(mediaData?.data)
         }
         fetchMedia()
+        
     }, [])
+
+    useEffect(() => {
+        console.log(media)
+    }, [media])
 
 
     // useEffect(() => {
@@ -38,7 +43,7 @@ const MediaGallery = () => {
 
 
     const DanceSchoolPictures = media?.filter(item => {
-        return item.type === "Dance School Pictures"
+        return item.type === "Dance Class Pictures"
     })
 
     const MakeUpPictures = media?.filter(item => {
@@ -145,7 +150,7 @@ const MediaGallery = () => {
                                         onMouseEnter={() => setHoveredItem(index)}
                                         onMouseLeave={() => setHoveredItem(null)}
                                     >
-                                        <img src={item.url} layout="fill" objectFit="contain" className="rounded-md m-2 hover:scale-110 transition delay-400 ease-in" />
+                                        <img src={item.photoUrl} layout="fill" objectFit="contain" alt="Dead Image" className="rounded-md m-2 hover:scale-110 transition delay-400 ease-in" />
                                         {/* {hoveredItem === index && (
                                             <div className="absolute inset-0 flex items-center justify-center">
                                                 <button className="bg-white p-3 rounded-md" onClick={() => handleDelete(item.id)}>
@@ -162,8 +167,8 @@ const MediaGallery = () => {
 
 
                 </div>
-                <Footer />
-                <ChatBot />
+                {/* <Footer />
+                <ChatBot /> */}
             </div>
         </>
     )

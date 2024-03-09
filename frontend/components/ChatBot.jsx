@@ -20,27 +20,27 @@ const ChatBot = () => {
   const [showWhiteCloudMessage, setShowWhiteCloudMessage] = useState(true);
 
 
-  const messagesEndRef = useRef(null);  // Create a ref
+  // const messagesEndRef = useRef(null);  // Create a ref
 
 
-  // Function to hide the white cloud message after 5 seconds
-  const hideWhiteCloudMessage = () => {
-    setTimeout(() => {
-      setShowWhiteCloudMessage(false);
-    }, 5000);
-  };
+  // // Function to hide the white cloud message after 5 seconds
+  // const hideWhiteCloudMessage = () => {
+  //   setTimeout(() => {
+  //     setShowWhiteCloudMessage(false);
+  //   }, 5000);
+  // };
 
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToBottom = () => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
-  useEffect(() => {
-    scrollToBottom()
-    hideWhiteCloudMessage();
+  // useEffect(() => {
+  //   scrollToBottom()
+  //   hideWhiteCloudMessage();
 
 
-  }, [messages]);
+  // }, [messages]);
 
   const sendMessage = async (e) => {
     e.preventDefault();
@@ -117,7 +117,7 @@ const ChatBot = () => {
                 <PulseLoader color={color} />
               </div>
             )}
-            <div ref={messagesEndRef} />
+            {/* <div ref={messagesEndRef} /> */}
           </div>
 
 
