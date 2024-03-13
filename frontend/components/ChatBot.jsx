@@ -142,7 +142,7 @@ const ChatBot = () => {
 
       {!toggleChat && showWhiteCloudMessage  && (
         <div className="relative p-4 m-2 tracking-wider bg-lightcream font-semibold text-black rounded-3xl shadow-md w-[240px] h-auto">
-          <AnimatedText timer={15} message="Hi! PriyadaGPT here. Click me if you need help or have any questions." />
+          <AnimatedText timer={15} message="Hi! PriyadaGPT here. Click me if you need help or have any questions about the dance studio." />
         </div>
       )}
 

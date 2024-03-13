@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ContactUs from "./ContactUs";
@@ -17,7 +18,10 @@ const NavBar = () => {
   const [toggleClassMenu, setToggleClassMenu] = useState(false);
   const [toggleProfile, setToggleProfile] = useState(false);
   const { sessionUser, setSessionUser} = UserGlobalState()
+  const [activeTab, setActiveTab] = useState("")
 
+  const pathname = usePathname()
+  console.log(pathname)
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -28,11 +32,23 @@ const NavBar = () => {
     alert("You have successfully logged out!");
   }
 
+  useEffect(() => {
+    if (pathname.includes('/schedule') || pathname.includes('/registration')) {
+      setActiveTab("classes");
+    } else if (pathname.startsWith('/about')) {
+      setActiveTab("about");
+    } else if (pathname.startsWith('/media-gallery')) {
+      setActiveTab('media-gallery')
+    } else if (pathname.startsWith('/services')) {
+      setActiveTab("services");
+    } else {
+      setActiveTab("")
+    }
+  }, [pathname]); 
 
   return (
 
-    <div className={`bg-black
-                 bg-opacity-30 text-cream h-28 flex items-center justify-between px-8 m-0 p-0 sticky top-0 z-[20]`}>
+    <div className={`bg-black bg-opacity-30 text-cream h-28 flex items-center justify-between px-8 m-0 p-0 sticky top-0 z-[20]`}>
       {/* Logo / Dance Studio Title */}
       <div className=" flex items-center">
         <div className="flex items-center mr-2">
@@ -44,12 +60,17 @@ const NavBar = () => {
       {/* NavLinks */}
       <div className="flex space-x-8 items-center">
 
-      <nav className="text-2xl">
+        <nav className={`text-2xl ${activeTab === 'about' ? 'border-b-4 border-purple-200' : ''}`}>
           <Link href="/about/artist">About</Link>
         </nav>
         {/* Class Schedule / Registration Drop Down Menu */}
-        <nav onMouseEnter={() => setToggleClassMenu(true)} onClick={() => setToggleClassMenu(!setToggleClassMenu)} className=" bg-inherit text-2xl flex gap-2 cursor-pointer">
-        <span className="text-2xl ">Classes</span>
+        <nav onMouseEnter={() => setToggleClassMenu(true)} 
+          onClick={() => {
+            setToggleClassMenu(!toggleClassMenu)
+          }} 
+          className=" bg-inherit text-2xl flex gap-2 cursor-pointer"
+        >
+        <span  className={`text-2xl ${activeTab ==='classes' ? 'border-b-4 border-purple-200' : ''}`}>Classes</span>
         {
             toggleClassMenu && (
               <div
@@ -65,14 +86,14 @@ const NavBar = () => {
           }
         </nav>
 
-        <nav className="text-2xl">
+        <nav className={`text-2xl ${activeTab ==='media-gallery' ? 'border-b-4 border-purple-200' : ''}`}>
           <Link href="/media-gallery">Awards / Gallery</Link>
         </nav>
 
-        <nav className="text-2xl">
+        <nav className={`text-2xl ${activeTab ==='services' ? 'border-b-4 border-purple-200' : ''}`}>
           <Link href="/services">Services</Link>
         </nav>
-{/* Profile or Login/Signup */}
+        {/* Profile or Login/Signup */}
         {sessionUser ? (
           <div
             onMouseEnter={() => setToggleProfile(true)}

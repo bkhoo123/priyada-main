@@ -44,31 +44,31 @@ const YourAccount = () => {
     </div>
   );
 
-  const renderBillingInfo = () => (
-    <div className="p-6 m-3 border rounded-md bg-lightcream shadow-2xl w-75">
-      <h2 className="text-2xl font-semibold  mb-4">Billing Information</h2>
-      <div className="mb-6">
-        <div className="font-semibold text-lg mb-2">Username</div>
-        <div>{sessionUser?.username}</div>
-      </div>
-      <div className="mb-6">
-        <div className="font-semibold text-lg mb-2">Full Name</div>
-        <div>{sessionUser?.first_name} {sessionUser?.last_name}</div>
-      </div>
-      <div className="mb-6">
-        <div className="font-semibold text-lg mb-2">Email</div>
-        <div>{sessionUser?.email}</div>
-      </div>
-      <div className="mb-6">
-        <div className="font-semibold text-lg mb-2">Address</div>
-        <div>{sessionUser?.address}</div>
-      </div>
-      <div className="mb-6">
-        <div className="font-semibold text-lg mb-2">Phone Number</div>
-        <div>{sessionUser?.phone_number}</div>
-      </div>
-    </div>
-  );
+  // const renderBillingInfo = () => (
+  //   <div className="p-6 m-3 border rounded-md bg-lightcream shadow-2xl w-75">
+  //     <h2 className="text-2xl font-semibold  mb-4">Billing Information</h2>
+  //     <div className="mb-6">
+  //       <div className="font-semibold text-lg mb-2">Username</div>
+  //       <div>{sessionUser?.username}</div>
+  //     </div>
+  //     <div className="mb-6">
+  //       <div className="font-semibold text-lg mb-2">Full Name</div>
+  //       <div>{sessionUser?.first_name} {sessionUser?.last_name}</div>
+  //     </div>
+  //     <div className="mb-6">
+  //       <div className="font-semibold text-lg mb-2">Email</div>
+  //       <div>{sessionUser?.email}</div>
+  //     </div>
+  //     <div className="mb-6">
+  //       <div className="font-semibold text-lg mb-2">Address</div>
+  //       <div>{sessionUser?.address}</div>
+  //     </div>
+  //     <div className="mb-6">
+  //       <div className="font-semibold text-lg mb-2">Phone Number</div>
+  //       <div>{sessionUser?.phone_number}</div>
+  //     </div>
+  //   </div>
+  // );
 
   const renderClassInfo = () => (
     <div className="p-6 m-3 border rounded-md bg-lightcream shadow-2xl w-75 m-5 mb-5">
@@ -178,7 +178,7 @@ const YourAccount = () => {
 
       <div className='text-black mx-4 sm:mx-8 lg:mx-12 xl:mx-20'>
         {renderAccountInfo()}
-        {renderBillingInfo()}
+        {/* {renderBillingInfo()} */}
         <div className='flex flex-row justify-center flex-wrap'>  {renderClassInfo()}</div>
 
       </div>

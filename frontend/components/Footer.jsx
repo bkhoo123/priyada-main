@@ -51,13 +51,13 @@ const Footer = () => {
 
 
 
-
+{/* 
           <div className="flex items-center gap-4 text-cream ">
             <Link href="mailto:priyankaraghuramandance@gmail.com" target="_blank" rel="noopener noreferrer">
             <svg className="" xmlns="http://www.w3.org/2000/svg" width="25" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             </Link>
             <Link href="mailto:priyankaraghuramandance@gmail.com" target="_blank" rel="noopener noreferrer">priyankaraghuramandance@gmail.com</Link>
-          </div>
+          </div> */}
 
         </div>
 

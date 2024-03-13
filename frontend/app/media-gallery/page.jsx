@@ -25,11 +25,6 @@ const MediaGallery = () => {
         
     }, [])
 
-    useEffect(() => {
-        console.log(media)
-    }, [media])
-
-
     // useEffect(() => {
     //     if (!sessionUser) {
     //         alert("You are not authorized to view this page. Please login.")
@@ -146,7 +141,7 @@ const MediaGallery = () => {
                                 return (
                                     <div
                                         key={index}
-                                        className="relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 h-[auto]"
+                                        className="relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4 h-[auto] cursor-pointer"
                                         onMouseEnter={() => setHoveredItem(index)}
                                         onMouseLeave={() => setHoveredItem(null)}
                                     >
